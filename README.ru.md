@@ -1,18 +1,26 @@
 # Seco
 
-Seco is a collaborative scripting development environment for the Java platform. You can write code in many JVM scripting languages. The code editor in Seco is based on the Mathematica notebook UI, but the full GUI is richer and much more ambitious. In a notebook, you can mix rich text with code and output, including interactive components created by your code. This makes Seco into a live environment because you can evaluate expression and immediately see the changes to your program. 
+Seco - интерактивная среда совместной разработки скриптов для Java-платформы.
+Вы можете писать код на многих скриптовых языках для JVM.
+Редактор кода в Seco основан на идее пользовательского интерфейса платформы Mathematica - блокноте,
+но реализация интерфейса в Seco богаче и намного амбициознее.
+В блокноте вы можете смешивать текст, исходный код и его вывод,
+включая интерактивные компоненты, созданные в вашем коде. 
+Это делает Seco живой средой, так как вы можете выполнять код
+и немедленно видеть изменения в вашей программе. 
 
-## Jump To:
+## Ссылки:
 
-* [Latest Release](https://github.com/bolerio/seco/wiki/Latest-Release) - download links etc.
-* [Installing and Starting Seco](https://github.com/bolerio/seco/wiki/Installing-and-Starting-Seco) - it's basically unpack and run 'run.sh', but here are some details.
-* [Google group for discussion](https://groups.google.com/forum/#!forum/scriba) - post questions & ideas there rather than writing personally to me.
-* [Become a Seco Developer](https://github.com/bolerio/seco/wiki/Become-a-Seco-Developer) - yes, come and help!
+* [Последний релиз](https://github.com/bolerio/seco/wiki/Latest-Release) - ссылки для загрузки и т.п.
+* [Инсталляция и запуск Seco](https://github.com/bolerio/seco/wiki/Installing-and-Starting-Seco) - в принципе это только распаковка архива и запуск 'run.sh', но есть некоторые детали.
+* [Группа Google для обсуждения](https://groups.google.com/forum/#!forum/scriba) - публикуйте вопросы и идеи здесь, вместо личных писем разработчикам.
+* [Стань разработчиком Seco](https://github.com/bolerio/seco/wiki/Become-a-Seco-Developer) - да, приди и сделай!
 
-## Take a Glance 
-Here is a screenshot of the full GUI, though out of the box you'd see a simplified version with a single tabbed pane:
+## Краткий обзор
+ 
+Это снимок полного GUI, но из коробки вы увидите упрощенную версию с одной вкладкой:
 
-![Alt text](http://kobrix.com/images/secofullshot.png "Seco Screenshot")
+![Seco Screenshot](http://kobrix.com/images/secofullshot.png)
 
 ## What Can I Use It For?
 
