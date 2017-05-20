@@ -1,4 +1,4 @@
-[![RU](https://github.com/hjnilsson/country-flags/raw/master/png250px/ru.png){width=100}](README.ru.md)
+[<img src="https://github.com/hjnilsson/country-flags/raw/master/png250px/ru.png" width="100">](README.ru.md)
 
 # Seco
 
