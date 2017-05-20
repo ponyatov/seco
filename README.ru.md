@@ -1,5 +1,3 @@
-[[https://github.com/hjnilsson/country-flags/raw/master/png250px/ru.png|alt=RU]](README.ru.md)
-
 # Seco
 
 Seco is a collaborative scripting development environment for the Java platform. You can write code in many JVM scripting languages. The code editor in Seco is based on the Mathematica notebook UI, but the full GUI is richer and much more ambitious. In a notebook, you can mix rich text with code and output, including interactive components created by your code. This makes Seco into a live environment because you can evaluate expression and immediately see the changes to your program. 
