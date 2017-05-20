@@ -1,4 +1,4 @@
-[<img src="https://github.com/hjnilsson/country-flags/raw/master/png250px/ru.png" width="64" style="border-color: black" border=2>](README.ru.md)
+<kbd>[<img src="https://github.com/hjnilsson/country-flags/raw/master/png250px/ru.png" width="64">](README.ru.md)</kbd>
 
 # Seco
 
