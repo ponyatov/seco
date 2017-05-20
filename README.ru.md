@@ -18,31 +18,86 @@ Seco - интерактивная среда совместной разрабо
 
 ## Краткий обзор
  
-Это снимок полного GUI, но из коробки вы увидите упрощенную версию с одной вкладкой:
+Это снимок полного GUI, но из коробки вы увидите упрощенную версию с одним табом:
 
-![Seco Screenshot](http://kobrix.com/images/secofullshot.png)
+![Seco Screenshot](http://kobrix.com/images/secofullshot.png "Seco Screenshot")
 
-## What Can I Use It For?
+## Для чего это можно использовать ?
 
-From short scripts for administrative tasks to complete libraries in your favorite JVM language, to interactive scripted applications, you can write and share any code that can run on the Java platform. You can also explore and learn APIs, programming languages and algorithms. You can rely on Seco for complex data analysis tasks using your favorite analytics or machine learning library combined your favorite database. 
+От коротких скриптов для задач администрирования до полных библиотек
+на вашем любимом скриптовом языке для JVM,
+для интерактивных скриптовых приложений, вы можете писать и публиковать любой код,
+который может выполняться на Java-платформе.
+Вы также можете экспериментировать и изучать API, языки программирования и алгоритмы.
+Вы можете положиться на Seco для сложных задач анализа данных используя ваши любимые
+аналитические и machine-learning библиотеки в связке с любимой базой данных. 
 
-## What Can It Do? 
+## Что я могу сделать ? 
 
-With Seco you write notebooks which are structured files mixing code, documentation and output. The concept comes from the Mathematica system. You can mix different programming languages integrated in a single runtime. You can create GUI interfaces for various tasks and organize them in zoomable, nested containers. The input of any computation is an evaluatable cell in some scripting language. The output of any computation is also cell that can contain any type of Java object and that can also be moved and attached to any other piece of the environment. The connection between input and output is preserved. You can share your work at the individual cell level with others in real-time through a P2P network, or by exporting whole notebooks to files.
+В Seco вы пишете блокноты в виде структурированных файлов, смешивающих код, документацию и выходные данные.
+Концепт был изят из системы Mathematica.
+Вы можете смешивать различные языки интегрированные в единый runtime.
+Вы можете создавать GUI-интерфейсы для различных задач, и организовывать их в масштабируемые вложенные контейнеры.
+Вход для любого вычисления -- интерпретируемая ячейка на некотором скриптовом языке.
+Вывод любого вычисления -- также ячейка, которая может содержать Java-объект любого типа,
+и она может быть перемещена и привязана к любой части среды.
+Связь между вводом и выводом сохраняется.
+Вы можете публиковать свою работу на уровне индивидуальных ячеек для других пользователей
+в реальном времени через P2P сеть, или экспортировать блокноты целиком как файлы.
 
-## What It Wants To be?
+## Чем это хочет быть ?
 
-A collaborative live development environment for building large-scale systems based on the evolution, sharing and reuse of fine-grained software artifacts. A detailed exposition of the long term vision can be read in the [Rapid Software Evolution paper] (http://kobrix.com/documents/rse.pdf).
+Среда совместной разработки для построения крупномасштабных систем, основанная на принципах эволющии,
+разделения ресурсов и повторного использования мелкозернистых программных артефактов.
+Подробно видение этого принипа можно прочитать в публикации
+[Rapid Software Evolution](http://kobrix.com/documents/rse.pdf).
 
-## Brief History
+## Краткая история
 
-Seco is more than a decade old (circa 2004). Initially called _Scriba_, it was funded and developed by [Kobrix Software, Inc.](http://www.kobrix.com) with the double goal of being a practical programming tool for daily use, initially complementing standard IDEs, and working towards achieving a new vision for knowledge-driven programming as outlined in the above mentioned paper. While it matured quickly, as funds dried out, development staled. Currenly the project is being maintained sporadically. Most of the code was written by Konstantin Vandev. It is currently maintained by Borislav Iordanov (@bolerio). Actively seeking help! 
+Сраде Seco разработана более чем десятилетие назад (начиная с 2004 года).
+Сначала она называлась _Scriba_, ее разработка финансировалась компанией
+[Kobrix Software, Inc.](http://www.kobrix.com) с двойной целью
+быть практичным программным инструментом для ежедневного использования
+аналогично стандартным IDE-средам,
+и быть основой развития нового видения разработки программного обеспечения основанном на знаниях,
+что описано в упомянутой выше публикации. 
+Работа шла быстро, но средства таяли, и разработка была заморожена.
+Сейчас проект поддерживается нерегулярно. Большинство кода написал
+[Konstantin Vandev](https://www.linkedin.com/in/konstantin-vandev-2a964494/).
+Сейчас проект поддерживается [Borislav Iordanov](https://www.linkedin.com/in/borislav-iordanov-17a1152/)
+(@bolerio). Активно ищем помощи! 
 
-## Comparison with Beaker/IPython/Jupyter
+## Сравнение с Beaker/IPython/Jupyter
 
-In recent years, a few comparable tools have emerged around the IPython web based notebook interface. Those look great and they undoubtedly share some overlap with what Seco has to offer. But here is how they differ and why you should care about Seco (i.e. give it a try, give feedback, help out with development and ideas):
+В последние годы появилось несколько похожих инструментов на базе сетевого блокнотного интерфейса IPython.
+Это выглядит здорово, и они несомненно разделяют некоторые возможности, которые может предложить Seco.
+Но вот что может предложить Seco (дайте ему шанс, обеспечьте обратную связь, и помогите нам в разработке вашими идеями и доработками):
 
-* Seco's foundation is HyperGraphDB. This is not immediately apparent, but everything you do is automatically persisted, sort of like in Smalltalk. Except, instead of saving a binary image and trying to work hand in hand with the JVM to bring it back alive, Seco's model is one of maintaining dependencies between inputs and outputs where initial input cells bootstrap the evaluation until the full interactice environment is recreated. The ultimate goal has always been a knowledge-driven P2P programming (with an evolutionary process on top). The JVM is a problem, but there is practically no other choice if one wants something immediately useful.
-* This point is worth understanding well: the very GUI of Seco is represented and stored in an embedded HyperGraphDB instance. The notebooks, the various types of cells are HyperGraphDB atoms so that they can be shared and modified at a fine grained level. A true live environment is hard to pull off within the JVM, but one can get close enough because one doesn't have to represent objects in a JVM serialized form, on can re-evaluate and re-create things at runtime.
-* From a more practical perspective, those newer tools are web-based while Seco is a plain desktop Java application. An advantage of IPython for example is that it looks prettier at the moment because Seco is written in Swing. A rewritten of Seco in JavaFX would bring the graphics on par. 
-* Also notably, a crucial difference is in the evaluation architecture: IPython based tools are client-server, which implies that the environment where the computation takes places is *separate* from the environment where user interaction happens. This leads to rather different possibility spaces. And it is no accident. It is a conscious decision for Seco to be part of the computation. Client-server, cloud based computational resources can always be plugged as evaluation engines for Seco, of course. But I'd rather embed a browser or a web rendering engine inside the enviorment instead of running within a browser. That's because the ultimate long term dream remains taking a shot at an alternative P2P, crowd-sourced programming model.
+* Основа Seco -- [HyperGraphDB](http://www.hypergraphdb.org/).
+Это не сразу видно, но все что вы делаете автоматически становится персистентным, это немного похоже на Smalltalk.
+Только вместо того чтобы сохранять все в бинарном образе
+и работать рука об руку с JVM чтобы восстановиться из этого образа,
+модель Seco предполагает поддержку зависимости между вводом и выводом,
+причем инициализирующие входные ячейки запускаются на выполнение
+и пересоздают полное интерактивное окружение.
+Конечной целью всегда было P2P программирование на основе знаний (с приоритетом на эволюционном процессе).
+JVM является проблемой сама по себе, но практически не существует другого варианта
+для получения чего-то полезного в прикладном смысле.
+* Этот момент заслуживает понимания: весь GUI в Seco представляется и хранится в экземпляре встраиваемой HyperGraphDB.
+Блокноты, различные типы ячеек -- атомы HyperGraphDB, так что они могут разделяться
+и модифицироваться на мелкозернистом уровне.
+Реально живую среду трудно реализовать в JVM, но можно достичь довольно близкого приближения,
+потому что не требуется представлять объекты в сериализированной форме, чтобы пересоздать объекты в runtime.
+* С более практической точки зрения, эти новые инструменты заточены на web,
+в то время как Seco чисто декстопное Java приложение.
+Достоинство IPython например то что он выглядит визуально лучше чем Seco, потому что Seco написан на Swing.
+Переписав Seco на JavaFX можно получить сравнимое качество графики. 
+* Также можно заметить значительно отличие в архитектуре интерпретации:
+IPython-инструменты клиент-серверные, что приводит к *отделению* среды вычислений
+от среды взаимодействия с пользователем. Это приводит к различным пространствам возможностей. И это не случайно.
+Для Seco осознанным решением является быть монолитным вычислителем.
+Клиент-серверные, облачные вычислительные ресурсы всегда могут быть подключены
+в Seco как интерпретирющие движки.
+Но лучше встроить браузер или движок web-рендера внуть среды, чем работать через браузер.
+Это потому, что конечная долгосрочная мечта остается достичь прорыва в альтернативной P2P
+колаборативной модели программирования.
