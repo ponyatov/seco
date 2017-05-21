@@ -2,5 +2,11 @@
 *.swp
 *.log
 tmp/
+
+.project
+.settings/
+.texlipse
+.externalToolBuilders/
+
 sigplanconf.cls
 docs/SECO_Developer.pdf
