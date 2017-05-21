@@ -12,6 +12,21 @@
 \usepackage{titlesec}
 \titleformat{\chapter}{\Large\bfseries}{\thechapter.}{1em}{}
 \titleformat{\section}{\large\bfseries}{\thesection.}{1em}{}
+%% fix contents style
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\Large}
+\renewcommand{\cftbeforetoctitleskip}{0mm}
+\renewcommand{\cftaftertoctitleskip}{1em}
+
+\renewcommand{\cftpartfont}{\bfseries}
+\renewcommand{\cftbeforepartskip}{0,5em}
+
+\renewcommand{\cftchapfont}{}
+\renewcommand{\cftbeforechapskip}{0.2em}
+
+\renewcommand{\cftsecfont}{\it}
+\renewcommand{\cftsubsecfont}{}
+\renewcommand{\cftparskip}{0mm}
 
 % relative sectioning
 \usepackage{ifthen}
@@ -52,6 +67,7 @@
 \begin{document}
 \maketitle
 \tableofcontents
+\clearpage
 
 \secly{Intro to Seco IDE}
 
@@ -94,5 +110,16 @@ and add this manual going this way. You can track me on github, but note this is
 fork project, and my modifications may be merged into core project:
 \url{https://github.com/ponyatov/seco}
 
+\secrel{Fresh taste}\secdown
+
+\secrel{Workbench install} \secdown
+
+\secrel{Java}
+
+\secrel{Seco}
+
+\secup
+
+\secup
 
 \end{document}
