@@ -18,15 +18,20 @@
 \renewcommand{\cftbeforetoctitleskip}{0mm}
 \renewcommand{\cftaftertoctitleskip}{1em}
 
-\renewcommand{\cftpartfont}{\bfseries}
-\renewcommand{\cftbeforepartskip}{0,5em}
-
-\renewcommand{\cftchapfont}{}
+\renewcommand{\cftchapfont}{\bfseries}
 \renewcommand{\cftbeforechapskip}{0.2em}
 
-\renewcommand{\cftsecfont}{\it}
-\renewcommand{\cftsubsecfont}{}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsubsecfont}{\it}
 \renewcommand{\cftparskip}{0mm}
+%% fix heading styles for tiny paper
+\usepackage{titlesec}
+\titleformat{\chapter}{\Large\bfseries}{\thechapter.}{1em}{}
+\titlespacing{\chapter}{0em}{0em}{0.5em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{1em}{}
+\titlespacing{\section}{0em}{1em}{0.5em}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection.}{1em}{}
+\titlespacing{\subsection}{0em}{1em}{0.5em}
 
 % relative sectioning
 \usepackage{ifthen}
@@ -55,10 +60,25 @@
 \renewcommand{\emph}[1]{\textcolor{red}{#1}}
 \newcommand{\note}[1]{\,\footnote{\ #1}}
 
+% listing & computer
+\usepackage[os=win]{menukeys}
+\usepackage{amssymb} % windows key
+\newcommand{\winstart}{$\boxplus$}
+\newcommand{\winr}{\keys{\winstart+R}}
+\newcommand{\lms}{$\lhd$}
+% \newcommand{\dblms}{$\lhd\lhd$}
+\newcommand{\rms}{$\rhd$}
+% \newcommand{\checkbox}{$\boxtimes$}
+% \newcommand{\uncheckbox}{$\square$}
+
 %% languages
 \newcommand{\seco}{$Seco$}
 \newcommand{\hgdb}{$HGDB$}
 \newcommand{\java}{$Java$}
+
+%% OSes
+\newcommand{\linux}{$Linux$}
+\newcommand{\win}{$Windows$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -66,7 +86,7 @@
 \title{\ \\\ \\Become a Seco Developer\\newbie guide}
 \begin{document}
 \maketitle
-\tableofcontents
+\tableofcontents\secdown
 \clearpage
 
 \secly{Intro to Seco IDE}
@@ -112,9 +132,66 @@ fork project, and my modifications may be merged into core project:
 
 \secrel{Fresh taste}\secdown
 
+For first time let's play with prebuild binary release: you will get feel of
+Seco without long SDK installation.
+
 \secrel{Workbench install} \secdown
 
 \secrel{Java}
+
+Prebuild Seco binary distro requires only \java\ RE, but we will install SDK:
+
+\begin{enumerate}[nosep]
+\item \url{http://www.oracle.com/technetwork/java/javase/downloads/}
+\item \menu{JDK>Download}
+\item \menu{Java SE Development Kit 8u131>Accept License Agreement}
+\item \menu{jdk-8u131-windows-i586.exe} 32 bit (win32)\\
+\menu{jdk-8u131-linux-x64.tar.gz} 64 bit
+\end{enumerate}
+
+\secdown
+\secrel{\linux}
+
+\begin{verbatim}
+ponyatov@debian:~$ tar zx< Download/jdk-8u131-linux-x64.tar.gz
+ponyatov@debian:~$ ls -la | grep jdk
+drwxr-xr-x  8 ponyatov ponyatov   4096 мар 15 12:35 jdk1.8.0_131
+ponyatov@debian:~$ env | grep jdk
+PATH=/home/ponyatov/jdk1.8.0_131/bin:/usr/local/bin:/usr/bin:..
+JAVA_HOME=/home/ponyatov/jdk1.8.0_131
+ponyatov@debian:~$ grep .setenv ~/.profile ~/.xsessionrc
+/home/ponyatov/.profile:. ~/.setenv
+/home/ponyatov/.xsessionrc:. ~/.setenv
+
+ponyatov@debian:~$ cat ~/.setenv
+export JAVA_HOME="/home/ponyatov/jdk1.8.0_131"
+export PATH="$JAVA_HOME/bin:$PATH"
+\end{verbatim}
+
+\secrel{\win}
+
+\begin{enumerate}[nosep]
+  \item run installer: \menu{jdk-8u131-windows-i586.exe}
+  \item select compiler path: \menu{JDK>C:/Java/jdk}
+  \item select runtime path: \menu{JRE>C:/Java/jre}
+  \item \menu{\winstart\ Start>Computer>\rms>System properties}
+  \item \menu{Environment variables>User variables}
+  \item \menu{New>JAVA\_HOME>C:/Java/jdk}
+  \item \menu{New>PATH>\%JAVA\_HOME\%/bin;\%JAVA\_HOME\%../jre/bin}
+\end{enumerate}
+
+\bigskip
+Check install: \menu{\winr>cmd}
+\begin{verbatim}
+C:\Users\ponyatov> javac -version
+java version 1.8.0_131
+C:\Users\ponyatov> java -version
+Java(TM) SE Runtime Environment (build 1.8.0_131-3464)
+\end{verbatim}
+
+\secup
+
+\clearpage
 
 \secrel{Seco}
 
