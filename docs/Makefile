@@ -1,5 +1,6 @@
 TEX =
-FIG = /tmp/seco1.pdf /tmp/seco2.pdf /tmp/hello.pdf
+FIG = /tmp/seco1.pdf /tmp/seco2.pdf /tmp/hello.pdf /tmp/hellobtn.pdf
+FIG += /tmp/htitle.pdf
 
 .PHONY: doc
 doc: SECO_Developer.pdf
