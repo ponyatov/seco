@@ -33,6 +33,10 @@
 \titleformat{\subsection}{\large\bfseries}{\thesubsection.}{1em}{}
 \titlespacing{\subsection}{0em}{1em}{0.5em}
 
+% images
+\usepackage[pdftex]{graphicx}
+\newcommand{\fig}[2]{\noindent\includegraphics[#2]{#1}}
+
 % relative sectioning
 \usepackage{ifthen}
 \newcounter{secdepth}\setcounter{secdepth}{0}
@@ -45,6 +49,7 @@
 \ifthenelse{\equal{\value{secdepth}}{-3}}{\subsection{#1}}{}
 \ifthenelse{\equal{\value{secdepth}}{-4}}{\subsubsection{#1}}{}
 }
+\newcommand{\secp}[1]{\paragraph{#1}}
 \newcommand{\secly}[1]{
 \section*{#1}
 \addcontentsline{toc}{section}{#1}
@@ -79,6 +84,9 @@
 %% OSes
 \newcommand{\linux}{$Linux$}
 \newcommand{\win}{$Windows$}
+
+%% objects
+\newcommand{\file}[1]{\textbf{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -150,7 +158,7 @@ Prebuild Seco binary distro requires only \java\ RE, but we will install SDK:
 \end{enumerate}
 
 \secdown
-\secrel{\linux}
+\secp{\linux}
 
 \begin{verbatim}
 ponyatov@debian:~$ tar zx< Download/jdk-8u131-linux-x64.tar.gz
@@ -168,7 +176,7 @@ export JAVA_HOME="/home/ponyatov/jdk1.8.0_131"
 export PATH="$JAVA_HOME/bin:$PATH"
 \end{verbatim}
 
-\secrel{\win}
+\secp{\win}
 
 \begin{enumerate}[nosep]
   \item run installer: \menu{jdk-8u131-windows-i586.exe}
@@ -177,7 +185,7 @@ export PATH="$JAVA_HOME/bin:$PATH"
   \item \menu{\winstart\ Start>Computer>\rms>System properties}
   \item \menu{Environment variables>User variables}
   \item \menu{New>JAVA\_HOME>C:/Java/jdk}
-  \item \menu{New>PATH>\%JAVA\_HOME\%/bin;\%JAVA\_HOME\%../jre/bin}
+  \item \menu{New>PATH>\%JAVA\_HOME\%/bin;\%JAVA\_HOME\%/../jre/bin}
 \end{enumerate}
 
 \bigskip
@@ -194,6 +202,35 @@ Java(TM) SE Runtime Environment (build 1.8.0_131-3464)
 \clearpage
 
 \secrel{Seco}
+
+\begin{enumerate}[nosep]
+  \item \url{https://github.com/bolerio/seco/releases/latest}
+  \item \menu{seco-dist-0.7.0.tgz} \linux\\\menu{seco-dist-0.7.0.zip} \win
+\end{enumerate}
+
+\secp{\linux}
+
+\begin{verbatim}
+ponyatov@debian:~$ tar zx < Download/seco-dist-0.7.0.tgz
+ponyatov@debian:~$ ~/seco/run.sh 
+\end{verbatim}
+
+\secp{\win}
+
+\begin{verbatim}
+cd C:/Java
+unzip C:/Users/ponyatov/Download/seco-dist-0.7.0.zip
+C:/Java/seco/run.cmd
+\end{verbatim}
+
+\fig{/tmp/seco1.pdf}{width=\textwidth}
+
+\noindent
+If you fonts looks cut downed by an ax, you can fix \file{seco/run.sh}:
+\begin{verbatim}
+JAVA_EXEC='java -Dawt.useSystemAAFontSettings=lcd'
+\end{verbatim}
+\fig{/tmp/seco2.pdf}{height=0.8\textheight}
 
 \secup
 

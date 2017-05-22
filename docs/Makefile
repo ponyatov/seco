@@ -1,18 +1,18 @@
 TEX =
-FIG = /tmp/seco.pdf
+FIG = /tmp/seco1.pdf /tmp/seco2.pdf
 
 .PHONY: doc
 doc: SECO_Developer.pdf
 
 LATEX = pdflatex -interaction=nonstopmode -output-directory=/tmp
-/tmp/%.pdf: %.tex $(TEX) $(FIG)
+/tmp/SECO_Developer.pdf: SECO_Developer.tex $(TEX) $(FIG)
 	$(LATEX) $<
 	
 %.pdf: /tmp/%.pdf
 	mv $< $@
 	
 /tmp/%.pdf: fig/%.png
-	echo $< $@
+	convert $< $@
 
 #docs/rse.tex: ./sigplanconf.cls
 #./sigplanconf.cls:
