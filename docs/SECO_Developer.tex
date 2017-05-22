@@ -17,10 +17,8 @@
 \renewcommand{\cfttoctitlefont}{\Large}
 \renewcommand{\cftbeforetoctitleskip}{0mm}
 \renewcommand{\cftaftertoctitleskip}{1em}
-
 \renewcommand{\cftchapfont}{\bfseries}
 \renewcommand{\cftbeforechapskip}{0.2em}
-
 \renewcommand{\cftsecfont}{}
 \renewcommand{\cftsubsecfont}{\it}
 \renewcommand{\cftparskip}{0mm}
@@ -32,6 +30,11 @@
 \titlespacing{\section}{0em}{1em}{0.5em}
 \titleformat{\subsection}{\large\bfseries}{\thesubsection.}{1em}{}
 \titlespacing{\subsection}{0em}{1em}{0.5em}
+%% redefine colors, make it darker
+\usepackage{xcolor}
+\definecolor{red}{rgb}{0.7,0,0}		% R
+\definecolor{green}{rgb}{0,0.6,0}	% G
+\definecolor{blue}{rgb}{0,0,0.7}	% B
 
 % images
 \usepackage[pdftex]{graphicx}
@@ -64,6 +67,7 @@
 \newcommand{\email}[1]{$<$\href{mailto:#1}{#1}$>$}
 \renewcommand{\emph}[1]{\textcolor{red}{#1}}
 \newcommand{\note}[1]{\,\footnote{\ #1}}
+\newcommand{\term}[1]{\textcolor{green}{#1}}
 
 % listing & computer
 \usepackage[os=win]{menukeys}
@@ -78,7 +82,7 @@
 
 %% languages
 \newcommand{\seco}{$Seco$}
-\newcommand{\hgdb}{$HGDB$}
+\newcommand{\hgdb}{$HyperGraph_{db}$}
 \newcommand{\java}{$Java$}
 
 %% OSes
@@ -87,6 +91,11 @@
 
 %% objects
 \newcommand{\file}[1]{\textbf{#1}}
+\newcommand{\prog}[1]{\textcolor{blue}{#1}}
+
+%% std.tools
+\newcommand{\git}{\prog{git}}
+\newcommand{\make}{\prog{make}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -145,9 +154,9 @@ Seco without long SDK installation.
 
 \secrel{Workbench install} \secdown
 
-\secrel{Java}
+\secrel{\java\ SDK}
 
-Prebuild Seco binary distro requires only \java\ RE, but we will install SDK:
+\seco\ requires only \java\ RE, but we will install SDK for later use:
 
 \begin{enumerate}[nosep]
 \item \url{http://www.oracle.com/technetwork/java/javase/downloads/}
@@ -201,7 +210,7 @@ Java(TM) SE Runtime Environment (build 1.8.0_131-3464)
 
 \clearpage
 
-\secrel{Seco}
+\secrel{\seco\ prebuild binary distro}
 
 \begin{enumerate}[nosep]
   \item \url{https://github.com/bolerio/seco/releases/latest}
@@ -233,6 +242,102 @@ JAVA_EXEC='java -Dawt.useSystemAAFontSettings=lcd'
 \fig{/tmp/seco2.pdf}{height=0.8\textheight}
 
 \secup
+
+\secrel{Using \seco}\secdown
+
+Some YouTube videos on using \seco:
+  \href{https://www.youtube.com/watch?v=ktOzFNKrCpE}{Installation}
+  
+  You just have done this
+
+\secrel{Notebook}  
+  
+  \href{https://www.youtube.com/watch?v=09Te_nSyHUA}{Notebooks}
+  idea goes from interface of well-known computational and analytical
+  math packages, preferrably Mathematica, and others\ --- Maxima, MathCAD,
+  Axiom,\ldots
+  
+  Each \term{notebook}\ looks like linear document, composed from \term{cell}s.
+  Cell can contain formatted text, code on some scripting language\note{code in
+  Mathematica/Maxima syntax for example}, result of previous script cell
+  execution, plot, image, interactive form,\ldots
+  
+  Cells can be grouped and folded/unfolded to hide information not used in this
+  moment.
+  
+  \seco\ uses some sort of graph database for storing data, so it uses
+  \term{niche}s to group and store notebooks and other working data.
+  You can think about \term{niche}\ as some sort of \emph{knowledge database}.
+  Starting \seco\ for first time you can get dialog asking of new neche
+  creation. In this case you should select storage directory and niche name.
+  If you have no dialog on \seco\ start, look on
+\begin{verbatim}
+ponyatov@debian:~$ ls -la ~ |grep .seco
+drwxr-xr-x  2 ponyatov ponyatov   .secoDefaultNiche
+drwxr-xr-x  2 ponyatov ponyatov   .secoRepository
+
+.secoDefaultNiche/:
+00000000.jdb  hgdbversion  je.info.0  je.lck
+
+.secoRepository/:
+00000000.jdb  hgdbversion  je.info.0  je.lck
+\end{verbatim}
+
+\noindent  
+Create new notebook for experiments: \menu{Notebook>New} or \keys{Ctrl+N}
+
+\noindent  
+You'll get new empty notebook tab \menu{CG},\\
+rename it \menu{CG>\rms>Rename>Tutorial}
+\bigskip
+
+Now click in empty notebook, you will see horisontal line, points to current
+entry cell. Start typing \menu{hello}, and you will see new cell.
+
+\bigskip
+\fig{/tmp/hello.pdf}{width=0.8\textwidth}\\
+By default \seco\ creates script cells using \java-like scripting language
+\href{}{beanshell}
+ 
+  
+\secrel{User Interface}
+ 
+  \href{https://www.youtube.com/watch?v=k9fbOmc2tOk}{User Interface}
+  
+\secrel{External Libraries Integration}
+
+\href{https://www.youtube.com/watch?v=2AM85plUtDU}{Runtime}
+
+\secup
+
+\secrel{\hgdb\ intro}
+
+\secup
+
+\secrel{Hacking \seco}\secdown
+
+If you want more complex system, It's time to deep into source.
+
+\secrel{Workbench install}\secdown
+
+\secrel{\git\ client}
+
+\secp{\linux}
+
+\begin{verbatim}
+ponyatov@debian:~$ sudo apt install git
+[sudo] password for ponyatov: xxxxxxxx
+Reading package lists... Done
+Building dependency tree
+...
+\end{verbatim}
+
+\secp{\win}
+
+\secrel{\seco\ source}
+
+\secup
+
 
 \secup
 

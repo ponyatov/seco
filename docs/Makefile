@@ -1,12 +1,12 @@
 TEX =
-FIG = /tmp/seco1.pdf /tmp/seco2.pdf
+FIG = /tmp/seco1.pdf /tmp/seco2.pdf /tmp/hello.pdf
 
 .PHONY: doc
 doc: SECO_Developer.pdf
 
 LATEX = pdflatex -interaction=nonstopmode -output-directory=/tmp
 /tmp/SECO_Developer.pdf: SECO_Developer.tex $(TEX) $(FIG)
-	$(LATEX) $<
+	$(LATEX) $< && $(LATEX) $<
 	
 %.pdf: /tmp/%.pdf
 	mv $< $@
