@@ -1,6 +1,6 @@
 TEX =
-FIG = ../tmp/seco1.pdf ../tmp/seco2.pdf ../tmp/hello.pdf ../tmp/hellobtn.pdf
-FIG += ../tmp/htitle.pdf
+FIG = fig/seco1.png fig/seco2.png fig/hello.png fig/hellobtn.png
+FIG += fig/htitle.png
 
 .PHONY: doc
 doc: SECO_Developer.pdf
@@ -12,8 +12,8 @@ LATEX = pdflatex -interaction=nonstopmode -output-directory=../tmp
 %.pdf: /tmp/%.pdf
 	mv $< $@
 	
-../tmp/%.pdf: fig/%.png
-	inkscape --without-gui --file="$<" --export-pdf="$@"
+#../tmp/%.pdf: fig/%.png
+#	inkscape --without-gui --file="$<" --export-pdf="$@"
 #	convert $< $@
 
 #docs/rse.tex: ./sigplanconf.cls

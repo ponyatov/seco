@@ -232,14 +232,14 @@ unzip C:/Users/ponyatov/Download/seco-dist-0.7.0.zip
 C:/Java/seco/run.cmd
 \end{verbatim}
 
-\fig{../tmp/seco1.pdf}{width=\textwidth}
+\fig{fig/seco1.png}{width=\textwidth}
 
 \noindent
 If you fonts looks cut downed by an ax, you can fix \file{seco/run.sh}:
 \begin{verbatim}
 JAVA_EXEC='java -Dawt.useSystemAAFontSettings=lcd'
 \end{verbatim}
-\fig{../tmp/seco2.pdf}{height=0.8\textheight}
+\fig{fig/seco2.png}{height=0.8\textheight}
 
 \secup
 
@@ -297,7 +297,7 @@ Now click in empty notebook, you will see horisontal line, points to current
 entry cell. Start typing \menu{hello}, and you will see new cell.
 
 \bigskip
-\fig{../tmp/hello.pdf}{width=0.8\textwidth}\\
+\fig{fig/hello.png}{width=0.8\textwidth}\\
 By default \seco\ creates script cells using \java-like scripting language
 \href{http://www.beanshell.org/manual/quickstart.html}{beanshell}
 
@@ -323,7 +323,7 @@ interpreter evaluates it as string and puts into output cell as is.
 
 \clearpage\noindent
 You ever can use GUI elements in output:
-\fig{../tmp/hellobtn.pdf}{height=0.3\textheight}
+\fig{fig/hellobtn.png}{height=0.3\textheight}
 
 \bigskip
 For documenting your code you must have ability to make just formatted text,
@@ -346,7 +346,7 @@ Text too large, select it in html view mode, and use drop-down selector in
 menu bar to change text style into smaller \verb$h2$ title.
  
 \bigskip
-\fig{../tmp/htitle.pdf}{width=0.95\textwidth}
+\fig{fig/htitle.png}{width=0.95\textwidth}
   
 \secrel{User Interface}
  
@@ -359,6 +359,11 @@ menu bar to change text style into smaller \verb$h2$ title.
 \secup
 
 \secrel{\hgdb\ intro}
+
+Current binary version of \hgdb\ was integrated with binary \seco\ distribution,
+so we don't need any special installation. Create new notebook
+\emph{HyperGraphDB} in \seco\ and put this code from tutorial, which will be
+create/open sample \hgdb\ database:
 
 \secup
 
