@@ -6,15 +6,8 @@ FIG += fig/htitle.png fig/dbhello.png
 doc: SECO_Developer.pdf
 
 LATEX = pdflatex -interaction=nonstopmode -output-directory=../tmp
-/tmp/SECO_Developer.pdf: SECO_Developer.tex $(TEX) $(FIG)
-	$(LATEX) $< && $(LATEX) $<
-	
-%.pdf: /tmp/%.pdf
-	mv $< $@
-	
-#../tmp/%.pdf: fig/%.png
-#	inkscape --without-gui --file="$<" --export-pdf="$@"
-#	convert $< $@
+SECO_Developer.pdf: SECO_Developer.tex $(TEX) $(FIG)
+	$(LATEX) $< && $(LATEX) $< && mv ../tmp/$@ $@
 
 #docs/rse.tex: ./sigplanconf.cls
 #./sigplanconf.cls:
