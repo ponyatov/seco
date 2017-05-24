@@ -405,7 +405,14 @@ able to store \emph{any} (serializable) \java\ \emph{objects}
 \item[Object db.get(HGHandle)]\ \\
 returns object stored in db by it's handle
 \item[db.close()]\ \\
-in real applications don't forget to close db before exit 
+in real applications don't forget to close db before exit\\
+add this line to end of \verb$HyperGraphDB$ tab\\
+and run this cell before exit from \seco
+\begin{verbatim}
+db.close();
+
+null
+\end{verbatim}
 \end{description}
 
 \secup
