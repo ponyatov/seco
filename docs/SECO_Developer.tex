@@ -85,6 +85,19 @@
 \newcommand{\checkbox}{$\boxtimes$}
 \newcommand{\uncheckbox}{$\square$}
 
+%% listings
+\usepackage{listings}
+\lstset{
+basicstyle=\small,
+frame=single,
+numbers=left,numberstyle=\small,numbersep=2mm,
+xleftmargin=3mm,xrightmargin=2mm,
+tabsize=4,
+commentstyle=\color{blue},
+}
+\newcommand{\lst}[2]{\lstinputlisting[title=#1]{#2}}
+\newcommand{\lstx}[3]{\lstinputlisting[title=#1,language=#3]{#2}}
+
 %% languages
 \newcommand{\seco}{$Seco$}
 \newcommand{\hgdb}{$HyperGraph_{db}$}
@@ -105,6 +118,7 @@
 \newcommand{\github}{$GitHub$}
 \newcommand{\make}{\prog{make}}
 \newcommand{\eclipse}{$Eclipse$}
+\newcommand{\gvim}{$(g)Vim$}
 
 %% misc
 \newcommand{\bit}[1]{$_{#1}bit$}
@@ -714,6 +728,34 @@ less modern computer to run it.
 \menu{Text Editors>\checkbox\ show print margin>80}\\
 this will help you to  make text files able to view on 80 chars VGA console
 \end{enumerate}
+
+\secrel{\gvim\ editor (IDE fallback)}
+
+\noindent
+If you computer not so powerful, or you need to do fast fix into any text file
+without waiting \eclipse\ startup, you can install \gvim\ text editor, can
+be treated and tuned as light IDE.
+
+\secp{\linux}
+
+\begin{verbatim}
+sudo apt install vim-gui-common
+\end{verbatim}
+
+\secp{\win}\ \\
+
+Install from \url{http://www.vim.org/download.php#pc}
+
+\bigskip
+After \gvim\ installation you will be able to edit any file by \menu{\rms>Edit
+in vim} in file explorer, or use command line \verb$gvim any.file$.
+
+\secp{vimrc}\ \\
+
+Add this config file to your \verb|$HOME$|, it will change \gvim\ behaviour.
+\lstx{\file{C:/Users/ponyatov/\_vimrc} or
+\file{\~{}/.vimrc}}{src/vim.rc}{sh}
+
 
 \secup
 

@@ -1,12 +1,13 @@
 TEX =
 FIG = fig/seco1.png fig/seco2.png fig/hello.png fig/hellobtn.png
 FIG += fig/htitle.png fig/dbhello.png
+SRC = src/vim.rc
 
 .PHONY: doc
 doc: SECO_Developer.pdf
 
 LATEX = pdflatex -interaction=nonstopmode -output-directory=../tmp
-SECO_Developer.pdf: SECO_Developer.tex $(TEX) $(FIG)
+SECO_Developer.pdf: SECO_Developer.tex $(TEX) $(FIG) $(SRC)
 	$(LATEX) $< && $(LATEX) $< && mv ../tmp/$@ $@
 
 #docs/rse.tex: ./sigplanconf.cls

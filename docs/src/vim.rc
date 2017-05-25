@@ -1,0 +1,43 @@
+# use platform-specific init file
+#source $VIMRUNTIME\..\vimrc # linux
+source $VIMRUNTIME\..\_vimrc
+
+# color highlight syntax
+syntax on
+
+# pretty bluish color scheme
+colorscheme darkblue
+
+# line numbering and 80 column marker
+set number
+set colorcolumn=80
+if has("gui_running")
+	set columns=85 lines=33
+endif
+
+# use 4 spaces wide tabulation
+set tabstop=4 shiftwidth=4 noexpandtab
+
+# Ctrl-T to open file in new tab
+nnoremap <c-t> :tabf<space>
+inoremap <c-t> <ESC>:tabf<space>
+# Ctrl-W to close current tab
+nnoremap <c-w> ZZ
+inoremap <c-w> <ESC>ZZ
+
+# map F12 to start make
+nnoremap <F12> 
+    :w<CR>:!mingw32-make OS=win32
+        RES=res.res EXE=.exe TAIL=-n17<CR>
+inoremap <F12>
+    <ESC>:w<CR>:!mingw32-make OS=win32
+        RES=res.res EXE=.exe TAIL=-n17<CR>
+# linux: make OS=linux RES= EXE=
+
+# assign file types system-wide (lexical skeleton .types)
+au BufNewFile,BufRead *.log set autoread
+au BufNewFile,BufRead *.log set nowrap
+au BufNewFile,BufRead *.ypp set filetype=yacc
+au BufNewFile,BufRead *.lpp set filetype=lex
+au BufNewFile,BufRead *.hpp set filetype=cpp
+au BufNewFile,BufRead *.cpp set filetype=cpp
