@@ -1,4 +1,4 @@
-TEX = SyntaxParser.tex
+TEX = SyntaxParser.tex Eclipse.tex gVim.tex
 FIG = fig/seco1.png fig/seco2.png fig/hello.png fig/hellobtn.png
 FIG += fig/htitle.png fig/dbhello.png
 SRC = src/vim.rc

@@ -1,0 +1,26 @@
+\secrel{\gvim\ editor (IDE fallback)}
+
+\noindent
+If you computer not so powerful, or you need to do fast fix into any text file
+without waiting \eclipse\ startup, you can install \gvim\ text editor, can
+be treated and tuned as light IDE.
+
+\secp{\linux}
+
+\begin{verbatim}
+sudo apt install vim-gui-common
+\end{verbatim}
+
+\secp{\win}\ \\
+
+Install from \url{http://www.vim.org/download.php#pc}
+
+\bigskip
+After \gvim\ installation you will be able to edit any file by \menu{\rms>Edit
+in vim} in file explorer, or use command line \verb$gvim any.file$.
+
+\secp{vimrc}\ \\
+
+Add this config file to your \verb|$HOME$|, it will change \gvim\ behaviour.
+\lstx{\file{C:/Users/ponyatov/\_vimrc} or
+\file{\~{}/.vimrc}}{src/vim.rc}{sh}
