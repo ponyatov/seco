@@ -353,8 +353,24 @@ menu bar to change text style into smaller \verb$h2$ title.
   
 \secrel{User Interface}
  
-  \href{https://www.youtube.com/watch?v=k9fbOmc2tOk}{User Interface}
-  
+By default \seco\ runs in tabbed \term{simpleUI} mode. If you want to run it in
+mode presented on \href{https://www.youtube.com/watch?v=k9fbOmc2tOk}{this
+video}, you should run command line:
+\begin{verbatim}
+ponyatov@debian:~$ ~/seco/run.sh --simpleUI false &
+\end{verbatim}
+But this mode was broken in current binary release build (0.7.0).\\
+And this is first point to apply some fixes in source code.
+
+\bigskip
+Current \seco\ has very limited support of interface for graph manipulation and
+data visualization. Lot of work must be applied to expanding interface with
+science data vizualization (ParaView bindings), computer science algorithms and
+data structures (first of all multilanguage compiler\&translator design and
+dynamic memory management), and CAD/CAM visual elements for engineering
+applications.
+
+\clearpage
 \secrel{External Libraries Integration}
 
 \href{https://www.youtube.com/watch?v=2AM85plUtDU}{Runtime}
