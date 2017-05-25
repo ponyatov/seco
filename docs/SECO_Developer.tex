@@ -58,6 +58,11 @@
 \addcontentsline{toc}{section}{#1}
 }
 
+% hyphenation and localization
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel} %,russian
+
 % [nosep] option in lists/enums
 \usepackage{enumitem}
 % frame box
@@ -97,8 +102,12 @@
 
 %% std.tools
 \newcommand{\git}{\prog{git}}
+\newcommand{\github}{$GitHub$}
 \newcommand{\make}{\prog{make}}
 \newcommand{\eclipse}{$Eclipse$}
+
+%% misc
+\newcommand{\bit}[1]{$_{#1}bit$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -165,8 +174,8 @@ Seco without long SDK installation.
 \item \url{http://www.oracle.com/technetwork/java/javase/downloads/}
 \item \menu{JDK>Download}
 \item \menu{Java SE Development Kit 8u131>Accept License Agreement}
-\item \menu{jdk-8u131-windows-i586.exe} 32 bit (win32)\\
-\menu{jdk-8u131-linux-x64.tar.gz} 64 bit
+\item \menu{jdk-8u131-windows-i586.exe} \bit{32}\ (win32)\\
+\menu{jdk-8u131-linux-x64.tar.gz} \bit{64}
 \end{enumerate}
 
 \secdown
@@ -253,7 +262,7 @@ Some YouTube videos on using \seco:
   
   You just have done this
 
-\secrel{Notebook in Niche}  
+\secrel{Notebook in Niche}
   
   \href{https://www.youtube.com/watch?v=09Te_nSyHUA}{Notebooks}
   idea goes from interface of well-known computational and analytical
@@ -371,13 +380,29 @@ dynamic memory management), and CAD/CAM visual elements for engineering
 applications.
 
 \clearpage
-\secrel{External Libraries Integration}
+\secrel{External Libraries Integration: Syntax Parser}
 
 \href{https://www.youtube.com/watch?v=2AM85plUtDU}{Runtime}\bigskip
 
-\seco\ lacks of very usable and powerful tool\ --- syntax parser. With parser
-you able to input and process any data presented in plain text formats: JSON,
-scripts in \emph{any} programming languages
+\noindent
+\seco\ lacks of very usable and powerful tool\ --- \term{syntax parser}. With
+parser you able to input and process any data presented in plain text formats:
+scripts in \emph{any} programming languages, JSON, XML,\ldots any text
+data formats.
+
+A \term{parser generator} is a tool that reads a grammar specification and
+converts it to a program, library module or executable object that can recognize
+matches to the grammar. In addition to the parser matcher itself, any parser
+generator provides other standard capabilities related to parser generation
+such as AST\note{[A]bstract [S]yntax [T]ree]}\ tree building, actions on
+matched elements, debugging, etc.
+
+So the most impressive way is expand \seco\ by full set of interpreter design
+tools: \href{http://www.antlr.org/}{ANTLR} parser toolchain, cell editor able to
+use ANTLRed grammars for syntax highlight (and completion?), grammar set for
+most used programming and data languages, DLR (Dynamic Language Runtime) for
+interpreter realization, and vizulatization tools for displaying interpreter
+internals (for learning for example).
 
 \secup
 
@@ -443,7 +468,7 @@ If you want more complex system, It's time to deep into source.
 
 \secrel{Workbench install}\secdown
 
-\secrel{\git\ client}
+\secrel{\git\ client for \github}
 
 \secp{\linux}
 
@@ -459,6 +484,98 @@ Building dependency tree
 
 \url{https://git-scm.com/download/win}
 
+\secp{Register developer account at \github}\ \\
+
+\noindent
+If you still have no developer account at \href{https://github.com/}{\github},
+you should create it.
+
+\bigskip
+\begin{itemize}[nosep]
+\item \menu{\href{https://github.com/}{\github}>right-up corner>Sign up}
+\item \menu{Username>bvsaancr}
+\item \menu{Email Address>bvsaancr@sharklasers.com}
+\item \menu{Password>*********}
+\item \keys{Create an account}
+\item \menu{Choose your plan>\checkbox\ Unlimited public repositories for
+free>Continue}
+\item Verify mailbox by clicking on link in email
+\item go to your github account \menu{\url{https://github.com/bvsaancr/}}
+ 
+\end{itemize}
+
+\secp{Generating SSH keys}\ \\
+
+\noindent
+For \emph{developer} use of \github\ you \emph{must} create and register crypto
+keys, as described at
+\href{https://help.github.com/articles/connecting-to-github-with-ssh/}{SSH
+help}:
+
+\bigskip
+\begin{itemize}[nosep]
+  \item click in drop-down menu in right-up corner of your github homepage
+  \item select \menu{Settings>Personal settings>SSH and GPG keys}
+  \item \menu{SSH keys>New SSH key}
+  \item open man in new browser tab:
+  \href{https://help.github.com/articles/generating-an-ssh-key/}{generating SSH
+  keys}
+  \item
+  \href{https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/}{Generating
+  a new SSH key and adding it to the ssh-agent}
+\end{itemize}
+\begin{verbatim}
+ssh-keygen -t rsa -b 4096 -C "bvsaancr@sharklasers.com"
+Enter a file ... save the key (/home/you/.ssh/id_rsa): [Enter]
+Enter passphrase (empty for no passphrase): [Type a passphrase]
+Enter same passphrase again: [Type passphrase again]
+\end{verbatim}
+\begin{itemize}[nosep]
+  \item open file \verb$~/.ssh/id_rsa.pub$ in any text editor and copy it's
+  content into clipboard
+  \item go back to internet browser with \menu{New SSH key} form
+  \item \menu{Title>Debian Linux developer key}
+  \item \menu{Key>paste \file{\~{}/.ssh/id\_rsa.pub} contents here}
+  \item \keys{Add SSH key}
+\item You'll see your new key in list
+\end{itemize}
+\begin{verbatim}
+Debian Linux developer key
+Fingerprint: e8:ba:1d:f4:67:ce:02:b9:c8:ee:23:09:e8:1b:b2:ff
+\end{verbatim}
+\begin{itemize}[nosep]
+  \item check your new key by
+  \href{https://help.github.com/articles/testing-your-ssh-connection/}{Testing
+  your SSH connection} recipe:
+\begin{verbatim}
+ponyatov@debian:~$ ssh -T git@github.com
+Hi ponyatov! You've successfully authenticated,
+but GitHub does not provide shell access.
+\end{verbatim}
+\end{itemize}
+
+\secp{Register SSH keys in \prog{ssh-agent} (\linux\ only)}\ \\
+
+\noindent
+Every time you relogin into your \linux\ system, you \emph{must} open terminal
+and \emph{register SSH key} in \prog{ssh-agent}:
+\begin{verbatim}
+ponyatov@debian:~$ ssh-add
+Enter passphrase for /home/ponyatov/.ssh/id_rsa: 
+Identity added: /home/ponyatov/.ssh/id_rsa (...)
+ponyatov@debian:~$ cd seco
+ponyatov@debian:~/seco$ git gui &
+\end{verbatim}
+I still have no idea how to make it automatically from dotfiles, but this step
+\emph{required} for \prog{git gui} work when you push local changes into
+\github\ repository. If you forgot it, your \prog{git push} in GUI will hangs.
+Use 
+\begin{verbatim}
+ponyatov@debian:~/seco$ killall -9 wish
+ponyatov@debian:~/seco$ ssh-add
+\end{verbatim}
+to clean-up this error. 
+
 \secrel{IDE \eclipse}
 
 \eclipse\ is heavy resource IDE intensively uses JVM, so you need some more or
@@ -467,7 +584,7 @@ less modern computer to run it.
 \begin{enumerate}[nosep]
   \item \url{https://www.eclipse.org/downloads/eclipse-packages/}
   \item Later we will widely use autogenerated code in \cpp\ so download\\
-  \menu{Eclipse IDE for C/C++ Developers>32/64 bit}
+  \menu{Eclipse IDE for C/C++ Developers>\bit{32/64}}
   \item install \eclipse\ distro to any directory: just unpack .zip to\\
   \menu{/home/ponyatov/eclipse} or \menu{C:/Java/eclipse}
 \item on first IDE start select path for your working project storage:\\
