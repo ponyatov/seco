@@ -451,35 +451,8 @@ null
 
 \clearpage
 \secrel{External Libraries Integration}\secdown
-
-\secrel{Syntax Parser}
-
-\href{https://www.youtube.com/watch?v=2AM85plUtDU}{Runtime}\bigskip
-
-\noindent
-\seco\ lacks of very usable and powerful tool\ --- \term{syntax parser}. With
-parser you able to input and process any data presented in plain text formats:
-scripts in \emph{any} programming languages, JSON, XML,\ldots any text
-data formats.
-
-A \term{parser generator} is a tool that reads a grammar specification and
-converts it to a program, library module or executable object that can recognize
-matches to the grammar. In addition to the parser matcher itself, any parser
-generator provides other standard capabilities related to parser generation
-such as AST\note{[A]bstract [S]yntax [T]ree]}\ tree building, actions on
-matched elements, debugging, etc.
-
-So the most impressive way is expand \seco\ by full set of interpreter design
-tools: \href{http://www.antlr.org/}{ANTLR} parser toolchain, generic cell editor
-able to use ANTLRed grammars for syntax highlight (and completion?), grammar set
-for most used programming and data languages, DLR (Dynamic Language Runtime) for
-interpreter realization, and vizulatization tools for displaying interpreter
-internals (for learning for example).
-
+\input{SyntaxParser}
 \secup
-\secup
-
-
 
 \secrel{Hacking \seco}\secdown
 
