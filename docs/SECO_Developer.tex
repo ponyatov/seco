@@ -599,18 +599,90 @@ Branch: master
 This branch is even with ponyatov:master.
 \end{verbatim}
 \begin{framed}
-Your \term{master} branch must be equal with \emph{origin} project tree
+Your \term{master} branch must be equal with \emph{upstream} project tree
 \end{framed}
 This requirement is determined by the need to track all changes made by main
 developer or by project maintainers. Tiny projects ordinarily use only
 \term{master} branch, more used and large projects use \term{development} branch
 and leave master branch for \term{stable releases}.
 \begin{framed}
-If main team \term{approve} some changes in project, you can pull/merge this
+If main team \term{approves} some changes in project, you can pull/merge this
 changes into \emph{your} master branch, and then check that all your code in
 other branches is compatible with core project evolution.
 \end{framed}
+Do not do any changes in your master branch\ --- it is reserved exclusively for
+origin$\rightarrow$fork changes.
+\clearpage
 
+If you forked \emph{my} repo, you also have some branches like \prog{manual},
+\prog{fontscale},\ldots\\It is good idea do not override them too to track
+fork$\rightarrow$subfork changes. So if you do not plan to do some megaproject,
+right way to track your changes is creating unical branches for tiny specific
+problems, and do all work in sync with whole developer's team (for example open
+bugreports and fix \href{https://github.com/bolerio/seco/issues}{issues
+registered in core project}).
+
+\bigskip
+Most basics of collaborative work on \github\ covered by this manuals:
+\begin{itemize}
+  \item \href{https://guides.github.com/activities/forking/}{Forking Projects}
+\end{itemize}
+
+\clearpage
+\secrel{Clone your \github\ repo locally}
+
+\begin{enumerate}[nosep]
+  \item move binary seco to separate folder
+\begin{verbatim}
+ponyatov@debian:~$ mv seco seco.bin
+\end{verbatim} 
+\item clone \github\ repo locally into your home dir
+\begin{itemize}[nosep]
+  \item go to your \url{https://github.com/kyjbfjqx/seco}
+  \item click \menu{Clone or download} green button
+\item \menu{Clone with>Use SSH>Copy to clipboard}
+\end{itemize}
+\begin{verbatim}
+kyjbfjqx@debian:~$ git clone -o gh --depth=1 \
+    git@github.com:kyjbfjqx/seco.git seco
+seco Cloning into 'seco'...
+remote: Counting objects: 2665, done.
+remote: Compressing objects: 100% (1574/1574), done.
+Receiving objects:  91% (2432/2665), 14.05 MiB | 926.00 KiB/s   
+\end{verbatim}
+\item go to cloned repository and move to learning branch  
+\begin{verbatim}
+kyjbfjqx@debian:~$ cd seco/
+kyjbfjqx@debian:~/seco$ git remote add ponyatov \
+    git@github.com:ponyatov/seco.git
+kyjbfjqx@debian:~/seco$ git checkout -b learning
+kyjbfjqx@debian:~/seco$ git branch
+* learning
+  master
+kyjbfjqx@debian:~/seco$ git pull ponyatov learning
+kyjbfjqx@debian:~/seco$ git push gh learning
+\end{verbatim}
+\clearpage
+\item create branch using
+\href{https://github.com/bolerio/seco/issues/52}{issue} registered on
+\href{https://github.com/bolerio/seco/issues}{upstream tracking system}
+\begin{verbatim}
+kyjbfjqx@debian:~/learning$ git checkout -b issue52 
+Switched to a new branch 'issue52'
+kyjbfjqx@debian:~/learning$ git branch
+* issue52
+  learning
+  master
+kyjbfjqx@debian:~/learning$ git push -u gh issue52
+Total 0 (delta 0), reused 0 (delta 0)
+To git@github.com:ponyatov/seco.git
+ * [new branch]      issue52 -> issue52
+Branch issue52 set up to track remote issue52 from gh.
+\end{verbatim}
+Now you can update \github\ project page in browser and select to your new
+branch \menu{Branch>issue52}
+\end{enumerate}
+ 
 \clearpage
 \secrel{IDE \eclipse}
 
