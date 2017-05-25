@@ -493,14 +493,14 @@ you should create it.
 \bigskip
 \begin{itemize}[nosep]
 \item \menu{\href{https://github.com/}{\github}>right-up corner>Sign up}
-\item \menu{Username>bvsaancr}
-\item \menu{Email Address>bvsaancr@sharklasers.com}
+\item \menu{Username>ponyatov}
+\item \menu{Email Address>dponyatov@gmail.com}
 \item \menu{Password>*********}
 \item \keys{Create an account}
 \item \menu{Choose your plan>\checkbox\ Unlimited public repositories for
 free>Continue}
 \item Verify mailbox by clicking on link in email
-\item go to your github account \menu{\url{https://github.com/bvsaancr/}}
+\item go to your github account \menu{\url{https://github.com/ponyatov/}}
  
 \end{itemize}
 
@@ -569,13 +569,49 @@ ponyatov@debian:~/seco$ git gui &
 I still have no idea how to make it automatically from dotfiles, but this step
 \emph{required} for \prog{git gui} work when you push local changes into
 \github\ repository. If you forgot it, your \prog{git push} in GUI will hangs.
-Use 
+To clean-up this error use 
 \begin{verbatim}
 ponyatov@debian:~/seco$ killall -9 wish
 ponyatov@debian:~/seco$ ssh-add
 \end{verbatim}
-to clean-up this error. 
 
+\secrel{Fork \seco\ source}
+
+\noindent
+To do your own development using somebody's project on \github, you \emph{must}
+\term{fork} it into \emph{your} \github\ account.
+
+\begin{itemize}[nosep]
+  \item go to master \seco\ repository:
+  \url{https://github.com/bolerio/seco/}
+  \item or my\note{preferrred, I need some practice to write
+  section on right pull requesting}\ developer fork
+  \url{https://github.com/ponyatov/seco/}
+  \item press \keys{Fork}\ button in right up corner
+  \item \menu{Where should we fork this repository?>select your account}
+  \item Forking ponyatov/seco: it should be some seconds later\ldots 
+\end{itemize}
+Now you see your new \term{repository}:
+\begin{verbatim}
+kyjbfjqx/seco
+forked from ponyatov/seco
+Branch: master
+This branch is even with ponyatov:master.
+\end{verbatim}
+\begin{framed}
+Your \term{master} branch must be equal with \emph{origin} project tree
+\end{framed}
+This requirement is determined by the need to track all changes made by main
+developer or by project maintainers. Tiny projects ordinarily use only
+\term{master} branch, more used and large projects use \term{development} branch
+and leave master branch for \term{stable releases}.
+\begin{framed}
+If main team \term{approve} some changes in project, you can pull/merge this
+changes into \emph{your} master branch, and then check that all your code in
+other branches is compatible with core project evolution.
+\end{framed}
+
+\clearpage
 \secrel{IDE \eclipse}
 
 \eclipse\ is heavy resource IDE intensively uses JVM, so you need some more or
@@ -602,8 +638,6 @@ this will help you to  make text files able to view on 80 chars VGA console
 \end{enumerate}
 
 \secup
-
-\secrel{\seco\ source}
 
 \secup
 
