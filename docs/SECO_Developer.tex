@@ -379,35 +379,10 @@ data structures (first of all multilanguage compiler\&translator design and
 dynamic memory management), and CAD/CAM visual elements for engineering
 applications.
 
-\clearpage
-\secrel{External Libraries Integration: Syntax Parser}
-
-\href{https://www.youtube.com/watch?v=2AM85plUtDU}{Runtime}\bigskip
-
-\noindent
-\seco\ lacks of very usable and powerful tool\ --- \term{syntax parser}. With
-parser you able to input and process any data presented in plain text formats:
-scripts in \emph{any} programming languages, JSON, XML,\ldots any text
-data formats.
-
-A \term{parser generator} is a tool that reads a grammar specification and
-converts it to a program, library module or executable object that can recognize
-matches to the grammar. In addition to the parser matcher itself, any parser
-generator provides other standard capabilities related to parser generation
-such as AST\note{[A]bstract [S]yntax [T]ree]}\ tree building, actions on
-matched elements, debugging, etc.
-
-So the most impressive way is expand \seco\ by full set of interpreter design
-tools: \href{http://www.antlr.org/}{ANTLR} parser toolchain, cell editor able to
-use ANTLRed grammars for syntax highlight (and completion?), grammar set for
-most used programming and data languages, DLR (Dynamic Language Runtime) for
-interpreter realization, and vizulatization tools for displaying interpreter
-internals (for learning for example).
-
 \secup
 
 \clearpage
-\secrel{\hgdb\ intro}
+\secrel{\hgdb}
 
 Current binary version of \hgdb\ was integrated with binary \seco\ distribution,
 so we don't need any special installation. Create new notebook
@@ -460,7 +435,37 @@ null
 \end{verbatim}
 \end{description}
 
+\clearpage
+\secrel{External Libraries Integration}\secdown
+
+\secrel{Syntax Parser}
+
+\href{https://www.youtube.com/watch?v=2AM85plUtDU}{Runtime}\bigskip
+
+\noindent
+\seco\ lacks of very usable and powerful tool\ --- \term{syntax parser}. With
+parser you able to input and process any data presented in plain text formats:
+scripts in \emph{any} programming languages, JSON, XML,\ldots any text
+data formats.
+
+A \term{parser generator} is a tool that reads a grammar specification and
+converts it to a program, library module or executable object that can recognize
+matches to the grammar. In addition to the parser matcher itself, any parser
+generator provides other standard capabilities related to parser generation
+such as AST\note{[A]bstract [S]yntax [T]ree]}\ tree building, actions on
+matched elements, debugging, etc.
+
+So the most impressive way is expand \seco\ by full set of interpreter design
+tools: \href{http://www.antlr.org/}{ANTLR} parser toolchain, generic cell editor
+able to use ANTLRed grammars for syntax highlight (and completion?), grammar set
+for most used programming and data languages, DLR (Dynamic Language Runtime) for
+interpreter realization, and vizulatization tools for displaying interpreter
+internals (for learning for example).
+
 \secup
+\secup
+
+
 
 \secrel{Hacking \seco}\secdown
 
@@ -675,7 +680,7 @@ kyjbfjqx@debian:~/learning$ git branch
   master
 kyjbfjqx@debian:~/learning$ git push -u gh issue52
 Total 0 (delta 0), reused 0 (delta 0)
-To git@github.com:ponyatov/seco.git
+To git@github.com:kyjbfjqx/seco.git
  * [new branch]      issue52 -> issue52
 Branch issue52 set up to track remote issue52 from gh.
 \end{verbatim}
@@ -686,6 +691,7 @@ branch \menu{Branch>issue52}
 \clearpage
 \secrel{IDE \eclipse}
 
+\noindent
 \eclipse\ is heavy resource IDE intensively uses JVM, so you need some more or
 less modern computer to run it.
 
