@@ -43,15 +43,8 @@ import org.antlr.runtime.*;
 import org.antlr.v4.Tool;
 \end{verbatim}
 this cell will be run on notebook open and be protected from editing
-\item grammar file \file{g.g}
-\begin{verbatim}
-grammar g;
-// REPL
-ex : | ex ID ;
-// tokens
-ID : [a-zA-Z0-9.+\-]+ ID ;
-SPACES : [ \t\r\n]+ -> skip ;
-\end{verbatim}
+\item grammar file
+\lst{\file{g.g}}{src/script.g4} 
 \item process grammar file via command line
 \begin{verbatim}
 java -jar lib/antlr-4.7-complete.jar g.g

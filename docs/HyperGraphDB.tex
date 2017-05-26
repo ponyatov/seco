@@ -1,0 +1,53 @@
+\secrel{\hgdb}
+
+Current binary version of \hgdb\ was integrated with binary \seco\ distribution,
+so we don't need any special installation. Create new notebook
+\emph{HyperGraphDB} in \seco\ and put this code from tutorial, which will be
+create/open sample \hgdb\ database:
+
+\bigskip
+\fig{fig/dbhello.png}{height=0.5\textheight}
+
+In \seco\ current storage db available via variable \verb$niche$
+
+\clearpage
+New database will be created in \verb$C:/Java/seco/dbHello:$
+\begin{verbatim}
+C:\Java\seco> ls -la dbHello
+total 53
+drwxr-xr-x 2 ponyatov   4096 May 24 03:18 .
+drwxr-xr-x 5 ponyatov   4096 May 24 03:18 ..
+-rw-r--r-- 1 ponyatov  44281 May 24 03:18 00000000.jdb
+-rw-r--r-- 1 ponyatov     41 May 24 03:18 hgdbversion
+-rw-r--r-- 1 ponyatov      0 May 24 03:18 je.info.0
+-rw-r--r-- 1 ponyatov      0 May 24 03:18 je.info.0.lck
+-rw-r--r-- 1 ponyatov      0 May 24 03:18 je.lck
+\end{verbatim}
+
+\hgdb\ can hold any \java\ object, for example we can put string into db and get
+it from db:
+\begin{verbatim}
+db.get(db.add("Hello"));
+Hello
+\end{verbatim}
+
+\begin{description}[nosep]
+\item[HGHandle db.add(Object)]\ \\
+returns \verb$HGHandle$ references to added object in database
+\begin{framed}\noindent
+\hgdb\ is \term{object-oriented database}\\
+able to store \emph{any} (serializable) \java\ \emph{objects}
+\end{framed}
+\item[Object db.get(HGHandle)]\ \\
+returns object stored in db by it's handle
+\item[db.close()]\ \\
+in real applications don't forget to close db before exit\\
+add this line to end of \verb$HyperGraphDB$ tab\\
+and run this cell before exit from \seco
+\begin{verbatim}
+db.close();
+
+null
+\end{verbatim}
+\end{description}
+
