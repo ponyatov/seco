@@ -68,4 +68,24 @@ For example let's see custom class sample from
 \href{https://github.com/hypergraphdb/hypergraphdb/wiki/GettingStarted}{tutorial}.
 \lstx{add this beanshell code to notebook}{src/HGBook.beanshell}{Java}
 
+\clearpage
+\secrel{Manupulate data without handle\ --- query basics}
+
+Querying can be done by using the static helper class "hg":
+\begin{verbatim}
+import org.hypergraphdb.HGQuery.hg.*;
+\end{verbatim}
+
+We stored only one element in our database, so we can find it using query by
+it's class:
+\begin{verbatim}
+HGQuery.hg.getAll(db, HGQuery.hg.type(String.class))
+
+[Hello, Hello, Hello]
+\end{verbatim}
+
+Oops, we found more than one element\ --- this is because I played with
+\verb$db$ many times, and added some strings with equal value, but they was
+added as separate objects.
+
 \secup
