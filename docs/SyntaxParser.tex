@@ -74,4 +74,12 @@ echo "this is sample code 01 +02.340 5e-6 " \
 (repl this is sample code 01 +02.340 5e-6 <EOF>)
 \end{verbatim}
 
+At this point we have no abilities to make full integration:
+\begin{itemize}
+  \item \prog{ANTLR} can't work in-memory, it require external files
+  \href{https://stackoverflow.com/questions/44213787/dynamic-parser-compilation-into-jvm-bytecode}{SO}
+  \item \seco\ have no cell type can be connected with external files
+  \href{https://github.com/bolerio/seco/issues/54}{issue54} 
+\end{itemize}
+
 \secup
