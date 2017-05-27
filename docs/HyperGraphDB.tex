@@ -88,4 +88,30 @@ Oops, we found more than one element\ --- this is because I played with
 \verb$db$ many times, and added some strings with equal value, but they was
 added as separate objects.
 
+\clearpage
+Sometimes it's more useful to get only handlers without transfer and deserialize
+full objects (especially in case of large BLOBs):
+\begin{verbatim}
+HGQuery.hg.getAll(db, HGQuery.hg.type(String.class))
+
+[47916675-b51e-46de-8aa6-a9d9ab428832, 
+    6bba4ca0-31e1-4131-999c-f5720d6cde3b, 
+        a4a59935-8864-438d-9c91-9bef0fc1a0f6]
+\end{verbatim}
+
+\clearpage
+\secrel{Store data uniquely}
+
+In case of need of object uniqality you should use \verb$assertAtom()$ function,
+which precheck object already exists in db\note{database was recreated}:
+\begin{verbatim}
+db.get(HGQuery.hg.assertAtom(db,"Hello"));
+db.get(HGQuery.hg.assertAtom(db,"Hello"));
+HGQuery.hg.getAll(db, HGQuery.hg.type(String.class));
+
+[Hello]
+\end{verbatim}
+Checking has it's price, so if you don't need unique atoms, \verb$graph.add$ is
+faster.
+
 \secup
