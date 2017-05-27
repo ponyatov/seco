@@ -4,6 +4,8 @@ FIG += fig/htitle.png fig/dbhello.png fig/antlrtree.png
 SRC = src/vim.rc src/script.g4 src/secoParser.mk
 SRC += src/HGCustomClass.java src/HGBook.beanshell
 
+TEX += ErgoFlora.tex
+
 .PHONY: doc
 doc: SECO_Developer.pdf
 
