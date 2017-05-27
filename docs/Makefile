@@ -1,7 +1,7 @@
 TEX = SyntaxParser.tex Eclipse.tex gVim.tex HyperGraphDB.tex
 FIG = fig/seco1.png fig/seco2.png fig/hello.png fig/hellobtn.png
 FIG += fig/htitle.png fig/dbhello.png
-SRC = src/vim.rc src/script.g4
+SRC = src/vim.rc src/script.g4 src/secoParser.mk
 
 .PHONY: doc
 doc: SECO_Developer.pdf

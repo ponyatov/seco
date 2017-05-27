@@ -49,6 +49,29 @@ this cell will be run on notebook open and be protected from editing
 \begin{verbatim}
 java -jar lib/antlr-4.7-complete.jar g.g
 \end{verbatim} 
+\item compile parser from command line
+\begin{verbatim}
+javac -cp .:lib/antlr-4.7-complete.jar g*.java
+\end{verbatim}
+\item run compiled parser
+\begin{verbatim}
+echo "1 2 3" | java -cp .:lib/antlr-4.7-complete.jar \
+    org.antlr.v4.gui.TestRig g repl -tree 
+\end{verbatim}
 \end{enumerate}
+
+\clearpage
+You can run \make\ which will use this Makefile as build script:
+\lstx{\file{\~{}/seco.bin/Makefile}}{src/secoParser.mk}{make}
+\begin{verbatim}
+ponyatov@debian:~/seco.bin$ make
+java  -cp :.:./lib/antlr-4.7-complete.jar \
+   -jar lib/antlr-4.7-complete.jar g.g
+javac -cp :.:./lib/antlr-4.7-complete.jar g*.java
+echo "1 2 3" | \
+java  -cp :.:./lib/antlr-4.7-complete.jar \
+   org.antlr.v4.gui.TestRig g repl -tree
+(repl 1 2 3 <EOF>)
+\end{verbatim}
 
 \secup
