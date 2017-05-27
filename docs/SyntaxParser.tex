@@ -55,8 +55,9 @@ javac -cp .:lib/antlr-4.7-complete.jar g*.java
 \end{verbatim}
 \item run compiled parser
 \begin{verbatim}
-echo "1 2 3" | java -cp .:lib/antlr-4.7-complete.jar \
-    org.antlr.v4.gui.TestRig g repl -tree 
+echo "this is sample code 01 +02.340 5e-6 " \
+   | java -cp .:lib/antlr-4.7-complete.jar \
+      org.antlr.v4.gui.TestRig g repl -tree
 \end{verbatim}
 \end{enumerate}
 

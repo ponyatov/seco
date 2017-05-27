@@ -1,4 +1,4 @@
-\secrel{\hgdb}
+\secrel{\hgdb}\secdown
 
 Current binary version of \hgdb\ was integrated with binary \seco\ distribution,
 so we don't need any special installation. Create new notebook
@@ -50,3 +50,22 @@ db.close();
 null
 \end{verbatim}
 \end{description}
+
+\secrel{Custom User Types}
+
+\hgdb\ has a powerful and highly customizable type system that can represent any
+\java\ type, but custom type interfacing details can be confusing. The good news
+is that you don't need to fiddle with custom type implementations at all,
+as long as you define your classes according to the \java$Bean$ standard:
+\begin{itemize}[nosep]
+\item your class must provide a \term{null-argument-constructor} and
+\item \emph{each property} must have a \term{getter} and \term{setter}:
+\end{itemize}
+\lstx{sample integratable
+\file{HGCustomClass}.java}{src/HGCustomClass.java}{Java}
+
+For example let's see custom class sample from
+\href{https://github.com/hypergraphdb/hypergraphdb/wiki/GettingStarted}{tutorial}.
+\lstx{add this beanshell code to notebook}{src/HGBook.beanshell}{Java}
+
+\secup
