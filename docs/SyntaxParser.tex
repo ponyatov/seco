@@ -28,7 +28,7 @@ Most known syntax parser engine for \java\ is \url{http://www.antlr.org/}
 
 \begin{enumerate}
   \item 
-Download full .jar directly into \seco\ lib dir:
+Download full .jar distibution directly into \seco\ lib dir:
 \begin{verbatim}
 wget -c \
    http://www.antlr.org/download/antlr-4.7-complete.jar \
@@ -66,12 +66,12 @@ You can run \make\ which will use this Makefile as build script:
 \begin{verbatim}
 ponyatov@debian:~/seco.bin$ make
 java  -cp :.:./lib/antlr-4.7-complete.jar \
-   -jar lib/antlr-4.7-complete.jar g.g
+    -jar lib/antlr-4.7-complete.jar g.g
 javac -cp :.:./lib/antlr-4.7-complete.jar g*.java
-echo "1 2 3" | \
-java  -cp :.:./lib/antlr-4.7-complete.jar \
-   org.antlr.v4.gui.TestRig g repl -tree
-(repl 1 2 3 <EOF>)
+echo "this is sample code 01 +02.340 5e-6 " \
+| java  -cp :.:./lib/antlr-4.7-complete.jar \
+    org.antlr.v4.gui.TestRig g repl -tree
+(repl this is sample code 01 +02.340 5e-6 <EOF>)
 \end{verbatim}
 
 \secup
