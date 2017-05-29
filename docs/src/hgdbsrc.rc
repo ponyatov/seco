@@ -1,0 +1,7 @@
+ponyatov@debian:~$ rm -rf hypergraphdb
+ponyatov@debian:~$ git clone -o gh --depth=1 \
+    -b release1.4 \
+        git@github.com:ponyatov/hypergraphdb.git
+ponyatov@debian:~$ cd hypergraphdb 
+ponyatov@debian:~/hypergraphdb$ git checkout -b issue128 
+ponyatov@debian:~/hypergraphdb$ git push -u gh issue128
