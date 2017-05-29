@@ -1,0 +1,5 @@
+ponyatov@debian:~$ git clone -o gh --depth=1 \
+    -b release1.4 \
+        https://github.com/hypergraphdb/hypergraphdb.git
+ponyatov@debian:~$ git clone -o gh --depth=1 \
+    https://github.com/hypergraphdb/viewer.git

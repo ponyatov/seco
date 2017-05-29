@@ -1,0 +1,230 @@
+\secrel{Hacking \seco}\secdown
+
+If you want more complex system, It's time to deep into source.
+
+\secrel{Workbench install}\secdown
+
+\secrel{\git\ client for \github}
+
+\secp{\linux}
+
+\begin{verbatim}
+ponyatov@debian:~$ sudo apt install git
+[sudo] password for ponyatov: xxxxxxxx
+Reading package lists... Done
+Building dependency tree
+...
+\end{verbatim}
+
+\secp{\win}
+
+\url{https://git-scm.com/download/win}
+
+\secp{Register developer account at \github}\ \\
+
+\noindent
+If you still have no developer account at \href{https://github.com/}{\github},
+you should create it.
+
+\bigskip
+\begin{itemize}[nosep]
+\item \menu{\href{https://github.com/}{\github}>right-up corner>Sign up}
+\item \menu{Username>ponyatov}
+\item \menu{Email Address>dponyatov@gmail.com}
+\item \menu{Password>*********}
+\item \keys{Create an account}
+\item \menu{Choose your plan>\checkbox\ Unlimited public repositories for
+free>Continue}
+\item Verify mailbox by clicking on link in email
+\item go to your github account \menu{\url{https://github.com/ponyatov/}}
+ 
+\end{itemize}
+
+\secp{Generating SSH keys}\ \\
+
+\noindent
+For \emph{developer} use of \github\ you \emph{must} create and register crypto
+keys, as described at
+\href{https://help.github.com/articles/connecting-to-github-with-ssh/}{SSH
+help}:
+
+\bigskip
+\begin{itemize}[nosep]
+  \item click in drop-down menu in right-up corner of your github homepage
+  \item select \menu{Settings>Personal settings>SSH and GPG keys}
+  \item \menu{SSH keys>New SSH key}
+  \item open man in new browser tab:
+  \href{https://help.github.com/articles/generating-an-ssh-key/}{generating SSH
+  keys}
+  \item
+  \href{https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/}{Generating
+  a new SSH key and adding it to the ssh-agent}
+\end{itemize}
+\begin{verbatim}
+ssh-keygen -t rsa -b 4096 -C "bvsaancr@sharklasers.com"
+Enter a file ... save the key (/home/you/.ssh/id_rsa): [Enter]
+Enter passphrase (empty for no passphrase): [Type a passphrase]
+Enter same passphrase again: [Type passphrase again]
+\end{verbatim}
+\begin{itemize}[nosep]
+  \item open file \verb$~/.ssh/id_rsa.pub$ in any text editor and copy it's
+  content into clipboard
+  \item go back to internet browser with \menu{New SSH key} form
+  \item \menu{Title>Debian Linux developer key}
+  \item \menu{Key>paste \file{\~{}/.ssh/id\_rsa.pub} contents here}
+  \item \keys{Add SSH key}
+\item You'll see your new key in list
+\end{itemize}
+\begin{verbatim}
+Debian Linux developer key
+Fingerprint: e8:ba:1d:f4:67:ce:02:b9:c8:ee:23:09:e8:1b:b2:ff
+\end{verbatim}
+\begin{itemize}[nosep]
+  \item check your new key by
+  \href{https://help.github.com/articles/testing-your-ssh-connection/}{Testing
+  your SSH connection} recipe:
+\begin{verbatim}
+ponyatov@debian:~$ ssh -T git@github.com
+Hi ponyatov! You've successfully authenticated,
+but GitHub does not provide shell access.
+\end{verbatim}
+\end{itemize}
+
+\secp{Register SSH keys in \prog{ssh-agent} (\linux\ only)}\ \\
+
+\noindent
+Every time you relogin into your \linux\ system, you \emph{must} open terminal
+and \emph{register SSH key} in \prog{ssh-agent}:
+\begin{verbatim}
+ponyatov@debian:~$ ssh-add
+Enter passphrase for /home/ponyatov/.ssh/id_rsa: 
+Identity added: /home/ponyatov/.ssh/id_rsa (...)
+ponyatov@debian:~$ cd seco
+ponyatov@debian:~/seco$ git gui &
+\end{verbatim}
+I still have no idea how to make it automatically from dotfiles, but this step
+\emph{required} for \prog{git gui} work when you push local changes into
+\github\ repository. If you forgot it, your \prog{git push} in GUI will hangs.
+To clean-up this error use 
+\begin{verbatim}
+ponyatov@debian:~/seco$ killall -9 wish
+ponyatov@debian:~/seco$ ssh-add
+\end{verbatim}
+
+\secrel{Fork \seco\ source}
+
+\noindent
+To do your own development using somebody's project on \github, you \emph{must}
+\term{fork} it into \emph{your} \github\ account.
+
+\begin{itemize}[nosep]
+  \item go to master \seco\ repository:
+  \url{https://github.com/bolerio/seco/}
+  \item or my\note{preferrred, I need some practice to write
+  section on right pull requesting}\ developer fork
+  \url{https://github.com/ponyatov/seco/}
+  \item press \keys{Fork}\ button in right up corner
+  \item \menu{Where should we fork this repository?>select your account}
+  \item Forking ponyatov/seco: it should be some seconds later\ldots 
+\end{itemize}
+Now you see your new \term{repository}:
+\begin{verbatim}
+kyjbfjqx/seco
+forked from ponyatov/seco
+Branch: master
+This branch is even with ponyatov:master.
+\end{verbatim}
+\begin{framed}
+Your \term{master} branch must be equal with \emph{upstream} project tree
+\end{framed}
+This requirement is determined by the need to track all changes made by main
+developer or by project maintainers. Tiny projects ordinarily use only
+\term{master} branch, more used and large projects use \term{development} branch
+and leave master branch for \term{stable releases}.
+\begin{framed}
+If main team \term{approves} some changes in project, you can pull/merge this
+changes into \emph{your} master branch, and then check that all your code in
+other branches is compatible with core project evolution.
+\end{framed}
+Do not do any changes in your master branch\ --- it is reserved exclusively for
+origin$\rightarrow$fork changes.
+\clearpage
+
+If you forked \emph{my} repo, you also have some branches like \prog{manual},
+\prog{fontscale},\ldots\\It is good idea do not override them too to track
+fork$\rightarrow$subfork changes. So if you do not plan to do some megaproject,
+right way to track your changes is creating unical branches for tiny specific
+problems, and do all work in sync with whole developer's team (for example open
+bugreports and fix \href{https://github.com/bolerio/seco/issues}{issues
+registered in core project}).
+
+\bigskip
+Most basics of collaborative work on \github\ covered by this manuals:
+\begin{itemize}
+  \item \href{https://guides.github.com/activities/forking/}{Forking Projects}
+\end{itemize}
+
+\clearpage
+\secrel{Clone your \github\ repo locally}
+
+\begin{enumerate}[nosep]
+  \item move binary seco to separate folder
+\begin{verbatim}
+ponyatov@debian:~$ mv seco seco.bin
+\end{verbatim} 
+\item clone \github\ repo locally into your home dir
+\begin{itemize}[nosep]
+  \item go to your \url{https://github.com/kyjbfjqx/seco}
+  \item click \menu{Clone or download} green button
+\item \menu{Clone with>Use SSH>Copy to clipboard}
+\end{itemize}
+\begin{verbatim}
+kyjbfjqx@debian:~$ git clone -o gh --depth=1 \
+    git@github.com:kyjbfjqx/seco.git seco
+seco Cloning into 'seco'...
+remote: Counting objects: 2665, done.
+remote: Compressing objects: 100% (1574/1574), done.
+Receiving objects:  91% (2432/2665), 14.05 MiB | 926.00 KiB/s   
+\end{verbatim}
+\item go to cloned repository and move to learning branch  
+\begin{verbatim}
+kyjbfjqx@debian:~$ cd seco/
+kyjbfjqx@debian:~/seco$ git remote add ponyatov \
+    git@github.com:ponyatov/seco.git
+kyjbfjqx@debian:~/seco$ git checkout -b learning
+kyjbfjqx@debian:~/seco$ git branch
+* learning
+  master
+kyjbfjqx@debian:~/seco$ git pull ponyatov learning
+kyjbfjqx@debian:~/seco$ git push gh learning
+\end{verbatim}
+\clearpage
+\item create branch using
+\href{https://github.com/bolerio/seco/issues/52}{issue} registered on
+\href{https://github.com/bolerio/seco/issues}{upstream tracking system}
+\begin{verbatim}
+kyjbfjqx@debian:~/learning$ git checkout -b issue52 
+Switched to a new branch 'issue52'
+kyjbfjqx@debian:~/learning$ git branch
+* issue52
+  learning
+  master
+kyjbfjqx@debian:~/learning$ git push -u gh issue52
+Total 0 (delta 0), reused 0 (delta 0)
+To git@github.com:kyjbfjqx/seco.git
+ * [new branch]      issue52 -> issue52
+Branch issue52 set up to track remote issue52 from gh.
+\end{verbatim}
+Now you can update \github\ project page in browser and select to your new
+branch \menu{Branch>issue52}
+\end{enumerate}
+ 
+\clearpage
+\input{Eclipse}
+\input{gVim}
+\secup
+
+\input{HackingHGDB}
+
+\secup
+
