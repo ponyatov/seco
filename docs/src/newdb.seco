@@ -1,0 +1,2 @@
+home = System.getProperty("user.home");
+db = new HyperGraph(home+"/dbHello");
