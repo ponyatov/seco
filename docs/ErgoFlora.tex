@@ -2,9 +2,8 @@
 
 \ergo\ and it's free variant \flora\ --- the most powerful implementation of
 \prolog\ programming language, expanded with lot of modern logic programming
-features: tabling, frames, datalog, natural language processing, machine
-learning, semantic web,\ldots \ergo/\flora's uses \prog{XSB Prolog} as it's
-core.
+features: memoization, tabling, frames, datalog, natural language processing,
+machine learning, semantic web,\ldots \ergo/\flora\ uses \xsb\ as it's core.
 
 \begin{itemize}[nosep]
   \item \ergo\ is commercial full-featured system developed by\\
@@ -12,10 +11,54 @@ core.
   Knowledge}
   \item \flora\ is free lightweight variant at\\
   \url{http://flora.sourceforge.net/}
-  \item \prog{XSB Prolog} itself available for free\\
+  \item \xsb\ itself available for free\\
   \url{http://xsb.sourceforge.net/}
-  \item \prog{InterProlog} is \java-bridge for XSB available at\\
-  \url{http://interprolog.com/java-bridge/}
+  \item \href{http://interprolog.com/java-bridge/}{\prog{InterProlog}} is
+  \java-bridge for \xsb
 \end{itemize}
+
+\secly{\flora\ Install}
+
+\begin{enumerate}[nosep]
+  \item 
+\menu{\url{http://flora.sourceforge.net/}>Download>\href{https://sourceforge.net/projects/flora/files/FLORA-2/}{latest
+release}}
+\end{enumerate}
+
+\secp{\linux}\ \\
+
+\begin{itemize}[nosep]
+  \item 
+\menu{Download x.x (Monstera deliciosa) Linux/Mac/Unixes>\file{flora2.run}}
+\begin{verbatim}
+ponyatov@debian:~$ chmod +x Download/flora2.run
+ponyatov@debian:~$ Download/flora2.run --target ~/FLORA
+\end{verbatim}
+\end{itemize}
+
+\secp{\win}\ \\
+
+\begin{itemize}[nosep]
+  \item 
+\menu{Download x.x (Monstera deliciosa) Window>\file{Flora-2.exe} (installer)}
+  \item 
+\menu{Install to \file{D:/FLORA}}
+\end{itemize}
+
+\secly{\xsb\ integration}
+
+Binary \flora\ distribution from upper section goes preloaded with \xsb\ and
+\java Bridge so you don't need to install anything specially for integration
+with \seco. But you need to add extra .jars into your \seco\ working
+configuration:
+
+\bigskip
+\begin{enumerate}[nosep]
+  \item \menu{\seco>Notebook>New>CG>\rms>Rename>FLORA}
+  \item \menu{\seco>Runtime>Configure Current>Add ClassPath Entry}
+  \item \menu{\file{file:/home/ponyatov/FLORA/flora2/java/interprolog.jar}}
+\end{enumerate}
+
+\lstx{\menu{FLORA>Init cell}}{src/interprolog.seco}{Java}
 
 \secup
