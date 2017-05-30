@@ -1,0 +1,46 @@
+<notebook title="Syntax">
+    <cell-group name="CG0">
+        <cell initialization="true">
+            <data><![CDATA[import org.antlr.runtime.*;
+import org.antlr.v4.Tool;
+]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[grammar g;
+repl : | ID* EOF ;              // REPL
+ID    : [a-zA-Z0-9_.+\-]+ ; // tokens
+WS  : [ \t\r\n]+ -> skip ;  // drop spaces
+]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[h  = org.hypergraphdb.handle.UUIDHandleFactory.I.makeHandle("af21a325-f087-4222-bac6-a488106c8fa2");
+//graph.get(h)
+]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[// grammar definition
+//grammar = "grammar g;";
+//
+g = new FileWriter("g.g");
+//g.write(grammar);
+//g.close();
+]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[src = new ANTLRStringStream("this is sample code 01 +02.340 5e-6 0xDEADBEEF 0b1101");
+]]>            </data>
+        </cell>
+
+    </cell-group>
+    <cell-group name="CG2">
+        <cell>
+            <data><![CDATA[antlr = new Tool(new String[]{"g.g"});
+]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[antlr.process();
+]]>            </data>
+        </cell>
+
+    </cell-group>
+</notebook>

@@ -1,0 +1,101 @@
+<notebook title="HyperGraphDB">
+    <cell-group name="CG0">
+        <cell html-preview="true" engine="html">
+            <data><![CDATA[<h3>Open/Create database</h3>
+]]>            </data>
+        </cell>
+        <cell initialization="true" readonly="true">
+            <data><![CDATA[home = System.getProperty("user.home");
+db = new HyperGraph(home+"/dbHello");
+]]>            </data>
+        </cell>
+
+    </cell-group>
+    <cell-group name="CG4">
+        <cell html-preview="true" engine="html">
+            <data><![CDATA[<h3>Add/Get Element</h3>
+]]>            </data>
+        </cell>
+
+    </cell-group>
+    <cell-group name="CG1">
+        <cell>
+            <data><![CDATA[db.get(db.add("Hello"));
+]]>            </data>
+        </cell>
+
+    </cell-group>
+    <cell-group name="CG3">
+        <cell html-preview="true" engine="html">
+            <data><![CDATA[<h3>Custom User Data Class
+</h3>]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[public class Book {
+
+    String title;        // title property
+    String author;        // author property
+    Book(){}            // null-constructor
+
+/*    public String getTitle() {
+        return title; }
+    public void setTitle(String title) {
+        this.title = title; }
+
+    public String getAuthor() {
+        return author; }
+    public void setAuthor(String author) {
+        this.author = author; }        */
+};
+]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[db.add(new Book())
+]]>            </data>
+        </cell>
+
+    </cell-group>
+    <cell-group name="CG5">
+        <cell html-preview="true" engine="html">
+            <data><![CDATA[<h3>Query basics</h3>
+]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[import org.hypergraphdb.HGQuery.hg.*;
+]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[HGQuery.hg.getAll(db, HGQuery.hg.type(String.class))
+]]>            </data>
+        </cell>
+        <cell initialization="true">
+            <data><![CDATA[HGQuery.hg.findAll(db, HGQuery.hg.type(String.class))
+]]>            </data>
+        </cell>
+
+    </cell-group>
+    <cell-group name="CG0">
+        <cell html-preview="true" engine="html">
+            <data><![CDATA[<h3>Add uniqual object</h3>
+]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[db.get(HGQuery.hg.assertAtom(db,"Hello"));
+db.get(HGQuery.hg.assertAtom(db,"Hello"));
+HGQuery.hg.getAll(db, HGQuery.hg.type(String.class));
+]]>            </data>
+        </cell>
+
+    </cell-group>
+    <cell-group name="CG2">
+        <cell html-preview="true" engine="html">
+            <data><![CDATA[<h2>don't forget to close db</h2>
+]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[db.close()
+]]>            </data>
+        </cell>
+
+    </cell-group>
+</notebook>

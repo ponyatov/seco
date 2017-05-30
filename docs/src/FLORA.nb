@@ -1,0 +1,29 @@
+<notebook title="FLORA">
+    <cell-group name="CG0">
+        <cell html-preview="true" engine="html">
+            <data><![CDATA[<h1>InterProlog init</h1>
+]]>            </data>
+        </cell>
+        <cell initialization="true">
+            <data><![CDATA[import com.declarativa.interprolog.*;
+prolog = new XSBSubprocessEngine("/home/ponyatov/FLORA/XSB");
+//prolog.shutdown();
+// connect with Ergo/Flora engine
+prolog.deterministicGoal("add_lib_dir('/home/ponyatov/FLORA/flora2')");
+prolog.deterministicGoal("[flora2]");
+]]>            </data>
+        </cell>
+
+    </cell-group>
+    <cell-group name="CG0">
+        <cell html-preview="true" engine="html">
+            <data><![CDATA[<h1>Shutdown</h1>
+]]>            </data>
+        </cell>
+        <cell>
+            <data><![CDATA[prolog.shutdown();
+]]>            </data>
+        </cell>
+
+    </cell-group>
+</notebook>

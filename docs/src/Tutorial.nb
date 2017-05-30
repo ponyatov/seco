@@ -1,0 +1,16 @@
+<notebook title="Tutorial">
+    <cell-group name="CG1">
+        <cell html-preview="true" engine="html">
+            <data><![CDATA[<h2>This demo code will be used in SECO_Developer tutorial
+</h2>]]>            </data>
+        </cell>
+
+    </cell-group>
+    <cell-group name="CG0">
+        <cell initialization="true">
+            <data><![CDATA[new JButton("hello")
+]]>            </data>
+        </cell>
+
+    </cell-group>
+</notebook>
