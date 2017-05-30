@@ -1,0 +1,24 @@
+<notebook title="HyperGraphDB">
+    <cell-group name="CG0">
+        <cell initialization="true" readonly="true">
+            <data><![CDATA[home = System.getProperty("user.home");
+db = new HyperGraph(home+"/dbHello");
+]]>            </data>
+        </cell>
+
+    </cell-group>
+    <cell-group name="CG1">
+        <cell>
+            <data><![CDATA[db.get(db.add("Hello"));
+]]>            </data>
+        </cell>
+
+    </cell-group>
+    <cell-group name="CG2">
+        <cell>
+            <data><![CDATA[db.close();
+]]>            </data>
+        </cell>
+
+    </cell-group>
+</notebook>
