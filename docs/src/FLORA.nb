@@ -6,10 +6,11 @@
         </cell>
         <cell initialization="true">
             <data><![CDATA[import com.declarativa.interprolog.*;
-prolog = new XSBSubprocessEngine("/home/ponyatov/FLORA/XSB");
+home = System.getProperty("user.home");
+prolog = new XSBSubprocessEngine(home+"/FLORA/XSB");
 //prolog.shutdown();
 // connect with Ergo/Flora engine
-prolog.deterministicGoal("add_lib_dir('/home/ponyatov/FLORA/flora2')");
+prolog.deterministicGoal("add_lib_dir('"+home+"/FLORA/flora2')");
 prolog.deterministicGoal("[flora2]");
 ]]>            </data>
         </cell>
