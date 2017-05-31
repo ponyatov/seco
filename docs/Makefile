@@ -6,6 +6,7 @@ SRC += src/HGCustomClass.java src/HGBook.beanshell src/interprolog.seco
 TEX += HackingSeco.tex HackingHGDB.tex
 SRC += src/hgdbclone.rc src/hgdbsrc.rc
 TEX += ErgoFlora.tex PrologIntro.tex
+SRC += src/flora.rc src/Hello.flr
 
 .PHONY: doc
 doc: SECO_Developer.pdf

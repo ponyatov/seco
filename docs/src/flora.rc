@@ -1,0 +1,12 @@
+ponyatov@debian:~/seco/docs/src$ ~/FLORA/flora2/runflora
+
+Flora-2/ErgoLite Reasoner 1.2 (Monstera deliciosa) of 2017-03-26 (rev: a2d10ed)
+XSB Version 3.7.0 (Clan MacGregor) of 2017-05-29 (linux-gnu, x64)
+
+For basic commands:  type  \help.
+Documentation:       http://flora.sourceforge.net/documentation.html
+
+Current folder:      /home/ponyatov/seco/docs/src
+
+flora2 ?- ^D
+| ?- halt.

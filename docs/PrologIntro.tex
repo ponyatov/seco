@@ -1,4 +1,4 @@
-\secrel{\prolog\ intro}
+\secrel{\prolog\ intro}\secdown
 
 The best tutorial on using \prolog\ you can found is
 \href{https://www.cpp.edu/~jrfisher/www/prolog_tutorial/contents.html}{J.R.Fisher's
@@ -10,5 +10,35 @@ some experience in other imperative or functional language. The key let you
 understand prolog\ --- think about clauses like hypergraph elements:
 \begin{itemize}
   \item 
-every term defines names relation between it's arguments.
+every term defines named relation between it's arguments.
 \end{itemize}
+
+\clearpage
+For first steps you can run \flora\ directly from command line, and load sample
+files using
+\lst{direct \flora\ run from command line}{src/flora.rc}
+
+\secrel{Load a program from a local file}
+
+\lst{(re)load this from local file using command \file{[Hello].}
+(.flr)}{src/Hello.flr}
+
+\begin{verbatim}
+flora2 ?- [Hello].
+Hello World
+
+Times (in seconds): elapsed = 0.0000; pure CPU = 0.0000
+
+Yes
+\end{verbatim}
+
+
+\secrel{Comments}
+
+\flora\ uses \cpp-like comments:
+\begin{verbatim}
+// line comment
+/* block comment */
+\end{verbatim}
+
+\secup
