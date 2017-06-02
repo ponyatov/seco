@@ -1,0 +1,14 @@
+C:\Users\dmitry>D:\FLORA\flora2\runflora.bat
+
+Flora-2/ErgoLite Reasoner 1.2 (Monstera deliciosa) of 2017-03-26 (rev: a2d10ed)
+XSB Version 3.7.0 (Clan MacGregor) of 2017-03-26 (windows, x32)
+
+For basic commands:  type  \help.
+Documentation:       http://flora.sourceforge.net/documentation.html
+
+Current folder:      C:\Users\dmitry
+
+*** Note: this is a 32 bit version of Flora-2, which is being phased out
+
+flora2 ?- ^Z
+| ?- halt.
