@@ -13,7 +13,7 @@ doc: SECO_Developer.pdf
 
 LATEX = pdflatex -interaction=nonstopmode -output-directory=../tmp
 SECO_Developer.pdf: SECO_Developer.tex $(TEX) $(FIG) $(SRC)
-	$(LATEX) $< && $(LATEX) $< && mv ../tmp/$@ $@
+	$(LATEX) $< && $(LATEX) $< && cp ../tmp/$@ $@
 
 #docs/rse.tex: ./sigplanconf.cls
 #./sigplanconf.cls:
