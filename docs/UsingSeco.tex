@@ -1,0 +1,127 @@
+\secrel{Using \seco}\secdown
+
+Some YouTube videos on using \seco:
+  \href{https://www.youtube.com/watch?v=ktOzFNKrCpE}{Installation}
+  
+  You just have done this
+
+\secrel{Notebook in Niche}
+  
+  \href{https://www.youtube.com/watch?v=09Te_nSyHUA}{Notebooks}
+  idea goes from interface of well-known computational and analytical
+  math packages, preferrably Mathematica, and others\ --- Maxima, MathCAD,
+  Axiom,\ldots
+  
+  Each \term{notebook}\ looks like linear document, composed from \term{cell}s.
+  Cell can contain formatted text, code on some scripting language\note{code in
+  Mathematica/Maxima syntax for example}, result of previous script cell
+  execution, plot, image, interactive form,\ldots
+  Cells can be grouped and folded/unfolded to hide information not used in this
+  moment.
+  
+  The cell types are essentially three: \emph{input}, \emph{output} and
+  \emph{documentation} cells.
+  
+  \seco\ uses some sort of graph database for storing data, so it uses
+  \term{niche}s to group and store notebooks and other working data.
+  You can think about \term{niche}\ as some sort of \emph{knowledge database}.
+  Starting \seco\ for first time you can get dialog asking of new niche
+  creation. In this case you should select storage directory including niche
+  name as last name element. If you have no dialog on \seco\ start, look on
+\begin{verbatim}
+ponyatov@debian:~$ ls -la ~ |grep .seco
+drwxr-xr-x  2 ponyatov ponyatov   .secoDefaultNiche
+drwxr-xr-x  2 ponyatov ponyatov   .secoRepository
+
+.secoDefaultNiche/:
+00000000.jdb  hgdbversion  je.info.0  je.lck
+
+.secoRepository/:
+00000000.jdb  hgdbversion  je.info.0  je.lck
+\end{verbatim}
+
+\noindent  
+Create new notebook for experiments: \menu{Notebook>New} or \keys{Ctrl+N}
+
+\noindent  
+You'll get new empty notebook tab \menu{CG},\\
+rename it \menu{CG>\rms>Rename>Tutorial}
+\bigskip
+
+Now click in empty notebook, you will see horisontal line, points to current
+entry cell. Start typing \menu{hello}, and you will see new cell.
+
+\bigskip
+\fig{fig/hello.png}{width=0.8\textwidth}\\
+By default \seco\ creates script cells using \java-like scripting language
+\href{http://www.beanshell.org/manual/quickstart.html}{beanshell}
+
+\clearpage
+Cell can be evaluated in place: press \keys{Shift+Enter} when your cursor 
+in cell.
+\begin{verbatim}
+hello
+
+null
+\end{verbatim}
+
+Hmm, something strange, fix it:
+
+\begin{verbatim}
+"hello"
+
+hello
+\end{verbatim}
+
+So, \verb$"text"$ in double quots is \term{string} literal. BeanShell
+interpreter evaluates it as string and puts into output cell as is.
+
+\clearpage\noindent
+You ever can use GUI elements in output:
+\fig{fig/hellobtn.png}{height=0.3\textheight}
+
+\bigskip
+For documenting your code you must have ability to make just formatted text,
+\seco\ provides this by changing input cell type to HTML. Move your cursor to
+the beginning of notebook by \keys{Ctrl+Home} and input:
+\begin{verbatim}
+This demo code will be used in SECO_Developer tutorial
+\end{verbatim}
+
+Then press \keys{Ctrl+Space} and select \menu{html} input syntax. Cell becomes
+html cell, it is unevaluable by \keys{Shift+Enter}, but can be viewed in
+\emph{html} and \emph{source} form. Use \menu{\rms>Source}, and add header tags:
+\begin{verbatim}
+<H1>This demo code will be used in SECO_Developer tutorial</H1>
+\end{verbatim}
+So you can use some basic hmtl tags to format your text, using WISIWIG editor
+elements in \emph{html} mode, or by direct tag input in \emph{source} mode.
+When you want to switch back into html mode, use \menu{\rms>Cell>Html View}.
+Text too large, select it in html view mode, and use drop-down selector in
+menu bar to change text style into smaller \verb$h2$ title.
+ 
+\bigskip
+\fig{fig/htitle.png}{width=0.95\textwidth}
+  
+\secrel{User Interface}
+ 
+By default \seco\ runs in tabbed \term{simpleUI} mode. If you want to run it in
+mode presented on \href{https://www.youtube.com/watch?v=k9fbOmc2tOk}{this
+video}, you should run command line:
+\begin{verbatim}
+ponyatov@debian:~$ ~/seco/run.sh --simpleUI false &
+\end{verbatim}
+But this mode was broken in current binary release build (0.7.0).\\
+And this is first point to apply some fixes in source code.
+
+\bigskip
+Current \seco\ has very limited support of interface for graph manipulation and
+data visualization. Lot of work must be applied to expanding interface with
+science data vizualization (ParaView bindings), computer science algorithms and
+data structures (first of all multilanguage compiler\&translator design and
+dynamic memory management), and CAD/CAM visual elements for engineering
+applications.
+
+\secup
+
+

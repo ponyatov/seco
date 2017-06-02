@@ -1,0 +1,102 @@
+\secrel{Fresh taste}\secdown
+
+For first time let's play with prebuild binary release: you will get feel of
+Seco without long SDK installation.
+
+\secrel{Workbench install} \secdown
+
+\secrel{\java\ SDK}
+
+\seco\ requires only \java\ RE, but we will install SDK for later use:
+
+\begin{enumerate}[nosep]
+\item \url{http://www.oracle.com/technetwork/java/javase/downloads/}
+\item \menu{JDK>Download}
+\item \menu{Java SE Development Kit 8u131>Accept License Agreement}
+\item \menu{jdk-8u131-windows-i586.exe} \bit{32}\ (win32)\\
+\menu{jdk-8u131-linux-x64.tar.gz} \bit{64}
+\end{enumerate}
+
+\secdown
+\secp{\linux}
+
+\begin{verbatim}
+ponyatov@debian:~$ tar zx< Download/jdk-8u131-linux-x64.tar.gz
+ponyatov@debian:~$ ls -la | grep jdk
+drwxr-xr-x  8 ponyatov ponyatov   4096 мар 15 12:35 jdk1.8.0_131
+ponyatov@debian:~$ env | grep jdk
+PATH=/home/ponyatov/jdk1.8.0_131/bin:/usr/local/bin:/usr/bin:..
+JAVA_HOME=/home/ponyatov/jdk1.8.0_131
+ponyatov@debian:~$ grep .setenv ~/.profile ~/.xsessionrc
+/home/ponyatov/.profile:. ~/.setenv
+/home/ponyatov/.xsessionrc:. ~/.setenv
+
+ponyatov@debian:~$ cat ~/.setenv
+export JAVA_HOME="/home/ponyatov/jdk1.8.0_131"
+export PATH="$JAVA_HOME/bin:$PATH"
+\end{verbatim}
+
+\secp{\win}
+
+\begin{enumerate}[nosep]
+  \item run installer: \menu{jdk-8u131-windows-i586.exe}
+  \item select compiler path: \menu{JDK>C:/Java/jdk}
+  \item select runtime path: \menu{JRE>C:/Java/jre}
+  \item \menu{\winstart\ Start>Computer>\rms>System properties}
+  \item \menu{Environment variables>User variables}
+  \item \menu{New>JAVA\_HOME>C:/Java/jdk}
+  \item \menu{New>PATH>\%JAVA\_HOME\%/bin;\%JAVA\_HOME\%/../jre/bin}
+\end{enumerate}
+
+\bigskip
+Check install: \menu{\winr>cmd}
+\begin{verbatim}
+C:\Users\ponyatov> javac -version
+java version 1.8.0_131
+C:\Users\ponyatov> java -version
+Java(TM) SE Runtime Environment (build 1.8.0_131-3464)
+\end{verbatim}
+
+\secup
+
+\clearpage
+
+\secrel{\seco\ prebuild binary distro}
+
+\begin{enumerate}[nosep]
+  \item \url{https://github.com/bolerio/seco/releases/latest}
+  \item \menu{seco-dist-0.7.0.tgz} \linux\\\menu{seco-dist-0.7.0.zip} \win
+\end{enumerate}
+
+\secp{\linux}
+
+\begin{verbatim}
+ponyatov@debian:~$ tar zx < Download/seco-dist-0.7.0.tgz
+ponyatov@debian:~$ ~/seco/run.sh 
+\end{verbatim}
+
+\secp{\win}
+
+\begin{verbatim}
+cd C:/Java
+unzip C:/Users/ponyatov/Download/seco-dist-0.7.0.zip
+C:/Java/seco/run.cmd
+\end{verbatim}
+
+\fig{fig/seco1.png}{width=\textwidth}
+
+\noindent
+If you fonts looks cut downed by an ax, you can fix \file{seco/run.sh}:
+\begin{verbatim}
+JAVA_EXEC='java -Dawt.useSystemAAFontSettings=lcd'
+\end{verbatim}
+\fig{fig/seco2.png}{width=\textwidth}
+
+\secup
+
+\input{UsingSeco}
+\input{HyperGraphDB}
+\input{ExternalLibraries}
+
+\secup
+
