@@ -7,7 +7,8 @@ SRC += src/HGCustomClass.java src/HGBook.beanshell src/interprolog.seco
 TEX += HackingSeco.tex HackingHGDB.tex
 SRC += src/hgdbclone.rc src/hgdbsrc.rc
 TEX += ErgoFlora.tex PrologIntro.tex ExternalLibraries.tex 
-SRC += src/linflora.rc src/winflora.rc src/hello.flr
+SRC += src/linflora.rc src/winflora.rc src/hello.flr 
+SRC += src/factorial.pl src/factorial.hyp
 
 .PHONY: doc
 doc: SECO_Developer.pdf
@@ -19,3 +20,6 @@ SECO_Developer.pdf: SECO_Developer.tex $(TEX) $(FIG) $(SRC)
 #docs/rse.tex: ./sigplanconf.cls
 #./sigplanconf.cls:
 #	wget -O $@ http://www.sigplan.org/sites/default/files/sigplanconf.cls
+
+../tmp/%.pdf: src/%.dot
+	dot -Tpdf $< -o $@

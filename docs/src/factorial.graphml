@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml>
+<node id="0"/>
+<node id="1"/>
+<hyperedge id="fact">
+<endpoint node="0"/>
+<endpoint node="1"/>
+</hyperedge>
+</graphml>

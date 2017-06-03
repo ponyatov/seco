@@ -22,10 +22,10 @@ files using
 \secrel{Load a program from a local file}
 
 \lst{(re)load this from local \file{.flr}\ file
-using command \file{[Hello].}}{src/hello.flr}
+using command \file{[hello].}}{src/hello.flr}
 
 \begin{verbatim}
-flora2 ?- [Hello].
+flora2 ?- [hello].
 Hello World
 
 Times (in seconds): elapsed = 0.0000; pure CPU = 0.0000
@@ -33,9 +33,12 @@ Times (in seconds): elapsed = 0.0000; pure CPU = 0.0000
 Yes
 \end{verbatim}
 
-On \win\ you can use \keys{\arrowkeyup}\ to reload last \verb$[Hello].$
+On \win\ you can use \keys{\arrowkeyup}\ to reload last \verb$[hello].$
 
 \secrel{.init file}
+
+You can create dotfile\note{file with name starts from .dot traditionally used
+in UNIX systems as config files (resides in user \file{\~{}/home} directory)}
 
 \secrel{Comments}
 
@@ -44,5 +47,11 @@ On \win\ you can use \keys{\arrowkeyup}\ to reload last \verb$[Hello].$
 // line comment
 /* block comment */
 \end{verbatim}
+
+\clearpage
+\secrel{\prog{factorial}\ sample}
+
+\lstx{\prog{factorial}\ in \prolog}{src/factorial.pl}{Prolog}
+\lst{hypergraph representation}{src/factorial.hyp}
 
 \secup
